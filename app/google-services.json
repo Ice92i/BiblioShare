@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "360229100022",
+    "project_id": "biblioshare-97612",
+    "storage_bucket": "biblioshare-97612.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360229100022:android:1685746100990bc912cfd7",
+        "android_client_info": {
+          "package_name": "com.example.biblioshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360229100022-d7v0t666ag9pa4qua93jrtdk5sp33mpi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASLwG19aiZZkusMvlj3Num0bunm9Qjnvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360229100022-d7v0t666ag9pa4qua93jrtdk5sp33mpi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

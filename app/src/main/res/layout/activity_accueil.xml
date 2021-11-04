@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    tools:context=".AccueilActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,7 +16,7 @@
         android:textSize="25sp"/>
 
     <Button
-        android:id="@+id/recherche"
+        android:id="@+id/accueil_recherche_bouton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -22,7 +24,7 @@
         android:textSize="21sp"/>
 
     <Button
-        android:id="@+id/scan"
+        android:id="@+id/accueil_scan_bouton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

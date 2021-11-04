@@ -11,12 +11,12 @@ class GestionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gestion_compte)
 
-        accueil_connexion_bouton.setOnClickListener {
+        gestion_connexion_bouton.setOnClickListener {
             val intent = Intent(this, ConnexionActivity::class.java)
             startActivity(intent)
         }
 
-        accueil_inscription_bouton.setOnClickListener {
+        gestion_inscription_bouton.setOnClickListener {
             val intent = Intent(this, ConnexionActivity::class.java)
             startActivity(intent)
         }

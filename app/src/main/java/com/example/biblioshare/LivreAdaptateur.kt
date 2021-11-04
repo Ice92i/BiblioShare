@@ -25,9 +25,9 @@ class LivreAdaptateur (val livres: List<Livre>) : RecyclerView.Adapter<LivreAdap
 
     override fun onBindViewHolder(holder: LivreViewHolder, position: Int) {
         val livre = livres[position]
-        holder.livreView.titre_livre_textview.text =
+        holder.livreView.livre_titre_textview.text =
             livre.titre
-        holder.livreView.auteur_livre_textview.text =
+        holder.livreView.livre_auteur_textview.text =
             livre.auteur
 //        holder.livreView.distance_livre_textview.text =
 //            livre.distance

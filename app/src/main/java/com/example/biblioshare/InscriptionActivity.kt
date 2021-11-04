@@ -1,6 +1,7 @@
 package com.example.biblioshare
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -21,9 +22,13 @@ class InscriptionActivity : AppCompatActivity() {
             Log.d(TAG,"Email : $email")
             val motdepasse = inscription_mdp_edittext.text.toString()
             Log.d(TAG,"MDP : $motdepasse")
-            finish()
 
-            //val utilisateurs = Utilisateur.all()
+            // Créer un nouveau compte et ajouter les infos à FireBase
+
+            val intent = Intent(this, AccueilActivity::class.java)
+            startActivity(intent)
+
+            finish()
         }
     }
 }

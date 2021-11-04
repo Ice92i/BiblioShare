@@ -12,6 +12,8 @@
         <entry key="../BiblioShare/app/src/main/res/layout/activity_main.xml" value="0.1111111111111111" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_messagerie.xml" value="0.2953125" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_messageriebis.xml" value="0.41494845360824745" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_not_found.xml" value="0.25" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_notfound.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche.xml" value="0.2953125" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_resultat_recherche.xml" value="0.1578125" />
         <entry key="../BiblioShare/app/src/main/res/layout/livre_view.xml" value="0.1578125" />

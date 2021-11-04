@@ -65,7 +65,7 @@
         android:textSize="25dp"/>
 
     <Button
-        android:id="@+id/bouton_inscription"
+        android:id="@+id/inscription_bouton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"

@@ -12,7 +12,7 @@ class ConnexionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connexion)
 
-        bouton_inscription.setOnClickListener{
+        inscription_bouton.setOnClickListener{
            val email = inscription_email_edittext.text.toString()
             Log.d(TAG,"Email : $email")
             val motdepasse = inscription_mdp_edittext.text.toString()

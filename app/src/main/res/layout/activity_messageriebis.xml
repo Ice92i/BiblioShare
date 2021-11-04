@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/messageList"
+        android:id="@+id/messages_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="55dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:scrollbars="vertical"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,8 +37,8 @@
         app:layout_constraintLeft_toLeftOf="parent">
 
         <EditText
-            android:id="@+id/txtMessage"
-            android:hint="Votre message"
+            android:id="@+id/message_edittext"
+            android:hint="@string/MessageHint"
             android:background="@android:color/transparent"
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
@@ -51,14 +49,17 @@
             android:maxLines="6"/>
 
         <Button
-            android:id="@+id/btnSend"
-            android:text="Envoyer"
-            android:textSize="10dp"
-            android:clickable="true"
-            android:layout_width="wrap_content"
+            android:id="@+id/envoyer_bouton"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="52dp"
             android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:clickable="true"
             android:gravity="center"
-            android:layout_gravity="bottom" />
+            android:icon="@drawable/abc_vector_test"
+            android:textSize="14sp"
+            app:icon="@android:drawable/ic_menu_send"
+            android:layout_marginRight="5dp"/>
 
     </LinearLayout>
 

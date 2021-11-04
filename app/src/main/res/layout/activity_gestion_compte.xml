@@ -24,7 +24,7 @@
         android:textSize="25dp"/>
 
     <Button
-        android:id="@+id/accueil_boutton_connexion"
+        android:id="@+id/accueil_connexion_bouton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -32,7 +32,7 @@
         android:textSize="21dp"/>
 
     <Button
-        android:id="@+id/accueil_boutton_inscription"
+        android:id="@+id/accueil_inscription_bouton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/gestion_connexion"

@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.122"
         tools:text="Titre"
-        android:textSize="25dp"/>
+        android:textSize="25sp"/>
 
     <TextView
         android:id="@+id/livre_auteur_textview"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.612"
         tools:text="Auteur"
-        android:textSize="25dp"/>
+        android:textSize="25sp"/>
 
     <ImageView
 
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.699"
         tools:text="Catégorie"
-        android:textSize="25dp"/>
+        android:textSize="25sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.806"
         tools:text="Est-ce bien votre livre ?"
-        android:textSize="25dp"/>
+        android:textSize="25sp"/>
 
     <Button
         android:id="@+id/valider_scan_bouton"
@@ -79,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.881"
-        android:textSize="18dp"/>
+        android:textSize="18sp"/>
 
     <Button
         android:id="@+id/rescanner_bouton"
@@ -92,6 +92,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.963"
-        android:textSize="18dp"/>
+        android:textSize="18sp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,4 +23,5 @@
     <string name="menu_retour">Retour</string>
     <string name="MessageHint">Votre message</string>
     <string name="Send">Envoyer</string>
+    <string name="accueil_ajout">Ajouter un livre</string>
 </resources>

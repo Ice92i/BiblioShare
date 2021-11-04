@@ -11,7 +11,7 @@
         android:text="@string/accueil_bonjour"
         android:layout_marginTop="240dp"
         android:layout_marginStart="10dp"
-        android:textSize="25dp"/>
+        android:textSize="25sp"/>
 
     <Button
         android:id="@+id/recherche"
@@ -19,15 +19,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="@string/accueil_recherche"
-        android:textSize="21dp"/>
+        android:textSize="21sp"/>
 
     <Button
         android:id="@+id/scan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Ajouter un livre"
-        android:textSize="21dp"/>
+        android:text="@string/accueil_ajout"
+        android:textSize="21sp"/>
 
 
 </LinearLayout>

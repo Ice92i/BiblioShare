@@ -59,7 +59,7 @@
             android:icon="@drawable/abc_vector_test"
             android:textSize="14sp"
             app:icon="@android:drawable/ic_menu_send"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginEnd="5dp"/>
 
     </LinearLayout>
 

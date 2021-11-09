@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BiblioShare">
         <activity
-            android:name=".GestionActivity"
+            android:name=".BarcodeScanningActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,9 +31,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"></meta-data>
         </provider>
-        <activity android:name=".ConnexionActivity"/>
+        <!--<activity android:name=".ConnexionActivity"/>
         <activity android:name=".InscriptionActivity"/>
-        <activity android:name=".AccueilActivity"/>
+        <activity android:name=".AccueilActivity"/>-->
     </application>
 
 </manifest>

@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../BiblioShare/app/src/main/res/layout/activity_accueil.xml" value="0.1111111111111111" />
-        <entry key="../BiblioShare/app/src/main/res/layout/activity_connexion.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_connexion.xml" value="0.1" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_conversation.xml" value="0.2953125" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_gestion_compte.xml" value="0.2953125" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_inscription.xml" value="0.2953125" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_liste_recherche.xml" value="0.2953125" />
@@ -18,8 +19,10 @@
         <entry key="../BiblioShare/app/src/main/res/layout/activity_resultat_recherche.xml" value="0.1578125" />
         <entry key="../BiblioShare/app/src/main/res/layout/livre_view.xml" value="0.1578125" />
         <entry key="../BiblioShare/app/src/main/res/layout/message_view.xml" value="0.1" />
+        <entry key="../BiblioShare/app/src/main/res/menu/menu_accueil.xml" value="0.2953125" />
         <entry key="../BiblioShare/app/src/main/res/menu/menu_compte.xml" value="0.1578125" />
-        <entry key="../BiblioShare/app/src/main/res/menu/menu_retour.xml" value="0.16770833333333332" />
+        <entry key="../BiblioShare/app/src/main/res/menu/menu_invite.xml" value="0.28229166666666666" />
+        <entry key="../BiblioShare/app/src/main/res/menu/menu_retour.xml" value="0.1" />
       </map>
     </option>
   </component>

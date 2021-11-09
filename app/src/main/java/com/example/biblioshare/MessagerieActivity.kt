@@ -4,22 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
-class NotFoundActivity : AppCompatActivity() {
+class MessagerieActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_not_found)
+        setContentView(R.layout.activity_messagerie)
 
-        val imageView: ImageView = findViewById(R.id.not_found_gif)
-        imageView.layoutParams.width = 120
-        imageView.layoutParams.height = 30
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_complet, menu)
+        menuInflater.inflate(R.menu.menu_retour, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -27,11 +23,6 @@ class NotFoundActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.retour_action -> {
                 this.finish()
-            }
-
-            R.id.messages_action -> {
-                val intent = Intent(this, MessagerieActivity::class.java)
-                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

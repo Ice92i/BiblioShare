@@ -2,36 +2,24 @@ package com.example.biblioshare
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_recherche.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.uqac.ppm.biblioshare.model.Livre
+import kotlinx.android.synthetic.main.activity_recherche_liste.*
 
-private const val TAG = "RechercheActivity"
+class RechercheListeActivity : AppCompatActivity() {
 
-class RechercheActivity : AppCompatActivity() {
+    lateinit var livres: MutableList<Livre>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_connexion)
+        setContentView(R.layout.activity_recherche_liste)
 
-        recherche_bouton.setOnClickListener {
-            val recherche = recherche_livre_edittext.text.toString()
-            Log.d(TAG, "Recherche : $recherche") // afficher les entrées (pour test seulement)
+        livres_recyclerview.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-            // Comparer la recherche à la bdd des livres, si résultat :
-
-            if (true) {
-                val intent = Intent(this, RechercheListeActivity::class.java)
-                startActivity(intent)
-            } else {
-                val intent = Intent(this, NotFoundActivity::class.java)
-                startActivity(intent)
-            }
-            finish()
-
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

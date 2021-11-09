@@ -3,18 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/activity_accueil.xml" value="0.19098277608915906" />
-        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/activity_connexion.xml" value="0.1595744680851064" />
-        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/activity_gestion_compte.xml" value="0.2115036231884058" />
-        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/activity_inscription.xml" value="0.19098277608915906" />
-        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/activity_liste_recherche.xml" value="0.19098277608915906" />
-        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/activity_liste_scan.xml" value="0.19098277608915906" />
-        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/activity_recherche.xml" value="0.19098277608915906" />
-        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/livre_view.xml" value="0.19098277608915906" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_accueil.xml" value="0.1111111111111111" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_connexion.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_gestion_compte.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_inscription.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_liste_recherche.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_liste_scan.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_main.xml" value="0.1111111111111111" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_messagerie.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_messageriebis.xml" value="0.41494845360824745" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_not_found.xml" value="0.25" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_notfound.xml" value="0.1" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_resultat_recherche.xml" value="0.1578125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/livre_view.xml" value="0.1578125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/message_view.xml" value="0.1" />
+        <entry key="../BiblioShare/app/src/main/res/menu/menu_compte.xml" value="0.1578125" />
+        <entry key="../BiblioShare/app/src/main/res/menu/menu_retour.xml" value="0.16770833333333332" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="15" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

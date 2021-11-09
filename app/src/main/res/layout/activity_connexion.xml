@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    tools:context=".ConnexionActivity"
     >
 
     <TextView
@@ -10,37 +12,37 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="220dp"
         android:text="@string/connexion_email"
-        android:layout_marginLeft="10dp"
-        android:textSize="25dp"
+        android:layout_marginStart="10dp"
+        android:textSize="25sp"
         />
 
     <EditText
         android:id="@+id/connexion_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"/>
+        android:textSize="25sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/connexion_mdp"
-        android:layout_marginLeft="10dp"
-        android:textSize="25dp"
+        android:layout_marginStart="10dp"
+        android:textSize="25sp"
         />
 
     <EditText
         android:id="@+id/connexion_mdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"/>
+        android:textSize="25sp"/>
 
     <Button
-        android:id="@+id/connexion"
+        android:id="@+id/connexion_bouton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/connexion_valider"
-        android:textSize="21dp"/>
+        android:textSize="21sp"/>
 
 
 

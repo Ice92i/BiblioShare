@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/contact_imageview"
+            android:id="@+id/contact_avatar_imageview"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_margin="8dp"
@@ -23,21 +23,21 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/pseudo_contact_textview"
+                android:id="@+id/contact_pseudo_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:layout_marginTop="15dp"
                 tools:text="Pseudo" />
 
             <TextView
-                android:id="@+id/message_contact_textview"
+                android:id="@+id/contact_message_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="12dp"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 tools:text="Dernier message" />
         </LinearLayout>
     </LinearLayout>

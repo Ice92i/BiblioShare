@@ -101,6 +101,9 @@ class BarcodeScanningActivity : AppCompatActivity() {
 
         val result = scanner.process(image)
             .addOnSuccessListener { barcodes ->
+                if(barcodes.size == 0){
+                    Toast.makeText(this, "Pas de code barre de livre détecté", Toast.LENGTH_LONG).show()
+                }
                 for (barcode in barcodes) {
                     when (barcode.format) {
                         Barcode.FORMAT_EAN_13 -> {
@@ -117,6 +120,5 @@ class BarcodeScanningActivity : AppCompatActivity() {
             }
             .addOnFailureListener {
             }
-        Toast.makeText(this, "Pas de code barre de livre détecté", Toast.LENGTH_LONG).show()
     }
 }

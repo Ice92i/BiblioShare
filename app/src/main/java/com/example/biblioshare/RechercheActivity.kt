@@ -21,7 +21,7 @@ class RechercheActivity : AppCompatActivity () {
             // Comparer la recherche à la bdd des livres, si résultat :
 
             if (true) {
-                val intent = Intent(this, ListeRechercheActivity::class.java)
+                val intent = Intent(this, RechercheActivity::class.java)
                 startActivity(intent)
             }
 

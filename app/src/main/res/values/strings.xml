@@ -2,7 +2,16 @@
     <string name="app_name">BiblioShare</string>
     <string name="accueil_bonjour">Bonjour</string>
     <string name="accueil_recherche">Recherche</string>
-    <string name="connexion_email">Connexion Email</string>
-    <string name="connexion_mdp">Connexion MDP</string>
-    <string name="connexion_valider">Connexion Valider</string>
+    <string name="connexion_email">Email</string>
+    <string name="connexion_mdp">MDP</string>
+    <string name="connexion_valider">Valider</string>
+    <string name="message_bienvenue">Message Bienvenue</string>
+    <string name="message_action">Message Action</string>
+    <string name="gestion_nouveau">Gestion Nouveau</string>
+    <string name="gestion_connexion">Gestion Connexion</string>
+    <string name="inscription_nom">Nom</string>
+    <string name="inscription_prénom">Prénom</string>
+    <string name="inscription_email">Email</string>
+    <string name="incription_mdp">MDP</string>
+    <string name="inscription_valider">Valider</string>
 </resources>

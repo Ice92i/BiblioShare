@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">BiblioShare</string>
+    <string name="accueil_bonjour">Bonjour</string>
+    <string name="accueil_recherche">Recherche</string>
+    <string name="connexion_email">Connexion Email</string>
+    <string name="connexion_mdp">Connexion MDP</string>
+    <string name="connexion_valider">Connexion Valider</string>
 </resources>

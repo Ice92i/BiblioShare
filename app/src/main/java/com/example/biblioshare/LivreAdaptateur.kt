@@ -5,21 +5,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.uqac.ppm.biblioshare.model.Livre
-import kotlinx.android.synthetic.main.livre_view.view.*
+import kotlinx.android.synthetic.main.view_livre.view.*
 
-//Utiliser la classe pou la liste des livres (recherche) + détails (post recherche et post scan)
+//Utiliser la classe pour la liste des livres (recherche) + détails (post recherche et post scan)
 
-class LivreAdaptateur (val livres: List<Livre>) : RecyclerView.Adapter<LivreAdaptateur.LivreViewHolder>() {
+class LivreAdaptateur(val livres: List<Livre>) :
+    RecyclerView.Adapter<LivreAdaptateur.LivreViewHolder>() {
 
-    class LivreViewHolder(val livreView : View) : RecyclerView.ViewHolder(livreView)
+    class LivreViewHolder(val livreView: View) : RecyclerView.ViewHolder(livreView)
 
 
-    override fun getItemCount()  = livres.size
+    override fun getItemCount() = livres.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LivreViewHolder {
-        val inflater : LayoutInflater = LayoutInflater.from(parent.context)
-        val view : View =
-            inflater.inflate(R.layout.livre_view, parent, false)
+        val inflater: LayoutInflater = LayoutInflater.from(parent.context)
+        val view: View =
+            inflater.inflate(R.layout.view_livre, parent, false)
         return LivreViewHolder(view)
     }
 
@@ -32,8 +33,6 @@ class LivreAdaptateur (val livres: List<Livre>) : RecyclerView.Adapter<LivreAdap
 //        holder.livreView.distance_livre_textview.text =
 //            livre.distance
     }
-
-
 
 
 }

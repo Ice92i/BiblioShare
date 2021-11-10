@@ -42,7 +42,7 @@ class RechercheActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.retour_action -> {
-                this.finish()
+                finish()
             }
 
             R.id.messages_action -> {

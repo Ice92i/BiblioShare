@@ -70,7 +70,17 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"></meta-data>
         </provider>
-
+        <activity android:name=".AccueilActivity" />
+        <activity android:name=".ConnexionActivity" />
+        <activity android:name=".ConversationActivity"/>
+        <activity android:name=".DetailRechercheActivity"/>
+        <activity android:name=".InscriptionActivity" />
+        <activity android:name=".MessagerieActivity" />
+        <activity android:name=".NotFoundActivity" />
+        <activity android:name=".RechercheActivity" />
+        <activity android:name=".RechercheListeActivity" />
+        <activity android:name=".BarcodeScanningActivity" />
+        <activity android:name=".ResultatScanActivity" />
     </application>
 
 </manifest>

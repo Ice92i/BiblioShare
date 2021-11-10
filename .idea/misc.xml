@@ -23,6 +23,9 @@
         <entry key="../BiblioShare/app/src/main/res/menu/menu_compte.xml" value="0.1578125" />
         <entry key="../BiblioShare/app/src/main/res/menu/menu_invite.xml" value="0.28229166666666666" />
         <entry key="../BiblioShare/app/src/main/res/menu/menu_retour.xml" value="0.1" />
+        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/activity_accueil.xml" value="0.20471014492753623" />
+        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/activity_recherche_resultat.xml" value="0.20425724637681159" />
+        <entry key="..\:/Documents/UQAC/Prog Mobile/BiblioShare/app/src/main/res/layout/activity_scan_resultat.xml" value="0.20425724637681159" />
       </map>
     </option>
   </component>

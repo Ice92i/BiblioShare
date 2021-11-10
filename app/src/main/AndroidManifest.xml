@@ -40,6 +40,8 @@
         <activity android:name=".NotFoundActivity" />
         <activity android:name=".RechercheActivity" />
         <activity android:name=".RechercheListeActivity" />
+        <activity android:name=".BarcodeScanningActivity" />
+        <activity android:name=".ResultatScanActivity" />
     </application>
 
 </manifest>

@@ -17,13 +17,11 @@ class AccueilActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Accéder à l'appareil photo pour le scan
-
-/*        accueil_scan_bouton.setOnClickListener {
-            val intent = Intent(this, ConnexionActivity::class.java)
+        accueil_scan_bouton.setOnClickListener {
+            val intent = Intent(this, BarcodeScanningActivity::class.java)
             startActivity(intent)
 
-        }*/
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

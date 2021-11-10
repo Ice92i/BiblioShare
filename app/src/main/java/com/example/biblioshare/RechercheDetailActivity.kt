@@ -6,11 +6,11 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 
-class DetailRechercheActivity : AppCompatActivity() {
+class RechercheDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recherche_resultat)
+        setContentView(R.layout.activity_recherche_detail)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -21,7 +21,7 @@ class DetailRechercheActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.retour_action -> {
-                this.finish()
+               finish()
             }
 
             R.id.messages_action -> {

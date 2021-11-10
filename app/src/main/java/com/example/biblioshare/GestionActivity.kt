@@ -17,7 +17,7 @@ class GestionActivity : AppCompatActivity() {
         }
 
         gestion_inscription_bouton.setOnClickListener {
-            val intent = Intent(this, ConnexionActivity::class.java)
+            val intent = Intent(this, InscriptionActivity::class.java)
             startActivity(intent)
         }
     }

@@ -1,4 +1,4 @@
-package com.uqac.ppm.biblioshare.model
+package com.example.biblioshare.modele
 
 data class Utilisateur(
     val nom: String,

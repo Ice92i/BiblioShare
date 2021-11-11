@@ -119,7 +119,7 @@ class BarcodeScanningActivity : AppCompatActivity() {
                     Toast.makeText(this, "Pas de code barre de livre détecté", Toast.LENGTH_LONG).show()
                 }
                 else{
-                    val intent: Intent = Intent(this,ResultatScanActivity::class.java)
+                    val intent: Intent = Intent(this,ScanDetailActivity::class.java)
                     val finalResult: Array<String> = Array<String>(size = barcodeResult.size, init = { _ -> "" })
                     var i = 0
                     for(s in barcodeResult){

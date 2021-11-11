@@ -7,12 +7,28 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.biblioshare.modele.Livre
+import kotlinx.android.synthetic.main.activity_possession_detail.*
 
 class PossessionDetailActivity  : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_possession_detail)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val livre = intent.getParcelableExtra<Livre>("id")
+
+        livre_titre_textview.text = livre?.titre
+
+        livre_auteur_textview.text = livre?.auteur
+
+      //  livre_couverture_recherche_imageview
+
+        livre_categorie_textview.text = livre?.categorie
+
+        livre_date_textview.text = livre?.dateScan.toString()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -27,4 +27,5 @@
     <string name="NotFound">Votre recherche n\'a pas abouti... Essayez encore !</string>
     <string name="menu_delete_action">Supprimer</string>
     <string name="accueil_possession">Consulter ma liste de livres</string>
+    <string name="inscription_pseudo">Pseudonyme</string>
 </resources>

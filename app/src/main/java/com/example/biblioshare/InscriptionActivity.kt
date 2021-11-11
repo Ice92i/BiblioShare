@@ -1,8 +1,8 @@
 package com.example.biblioshare
 
+// AJouter pseudo a fireB
 
 import android.Manifest
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -13,14 +13,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.biblioshare.firebase.CallFirebase
-import com.example.biblioshare.utils.Location
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_inscription.*
-import java.util.*
 
 private const val TAG = "InscriptionActivity"
 
@@ -36,6 +34,7 @@ class InscriptionActivity : AppCompatActivity() {
         inscription_bouton.setOnClickListener {
             val nom = inscription_nom_edittext.text.toString()
             val prenom = inscription_prenom_edittext.text.toString()
+            val pseudo = inscription_pseudo_edittext.text.toString()
             val email = inscription_email_edittext.text.toString()
             val motdepasse = inscription_mdp_edittext.text.toString()
             val firebaseName = "${nom.uppercase()} $prenom"

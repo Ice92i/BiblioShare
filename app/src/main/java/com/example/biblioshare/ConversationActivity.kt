@@ -21,7 +21,7 @@ class ConversationActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.retour_action -> {
-                this.finish()
+                finish()
             }
         }
         return super.onOptionsItemSelected(item)

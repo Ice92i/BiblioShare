@@ -7,17 +7,17 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uqac.ppm.biblioshare.model.Livre
-import kotlinx.android.synthetic.main.activity_recherche_liste.*
+import kotlinx.android.synthetic.main.activity_possession_liste.*
 
-class RechercheListeActivity : AppCompatActivity() {
+class PossessionListeActivity : AppCompatActivity() {
 
     lateinit var livres: MutableList<Livre>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recherche_liste)
+        setContentView(R.layout.activity_possession_liste)
 
-        livres_recherche_recyclerview.layoutManager =
+        livres_possession_recyclerview.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
     }
@@ -40,5 +40,4 @@ class RechercheListeActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 }

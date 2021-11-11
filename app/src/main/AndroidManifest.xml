@@ -51,15 +51,20 @@
             android:name=".ConversationActivity"
             android:parentActivityName=".MessagerieActivity" />
         <activity
-            android:name=".RechercheDetailActivity"
-            android:parentActivityName=".GestionActivity" />
-        <activity
             android:name=".InscriptionActivity"
             android:parentActivityName=".GestionActivity" />
         <activity android:name=".MessagerieActivity" />
         <activity android:name=".NotFoundActivity" />
+        <activity
+            android:name=".PossessionDetailActivity"
+            android:parentActivityName=".PossessionListeActivity" />
+        <activity android:name=".PossessionListeActivity" />
         <activity android:name=".RechercheActivity" />
+        <activity
+            android:name=".RechercheDetailActivity"
+            android:parentActivityName=".RechercheListeActivity" />
         <activity android:name=".RechercheListeActivity" />
+        <activity android:name=".ScanDetailActivity"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -31,5 +31,13 @@
         android:text="@string/accueil_ajout"
         android:textSize="21sp"/>
 
+    <Button
+        android:id="@+id/accueil_possession_bouton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/accueil_possession"
+        android:textSize="21sp"/>
+
 
 </LinearLayout>

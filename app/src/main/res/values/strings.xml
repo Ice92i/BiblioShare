@@ -26,4 +26,5 @@
     <string name="accueil_ajout">Ajouter un livre</string>
     <string name="NotFound">Votre recherche n\'a pas abouti... Essayez encore !</string>
     <string name="menu_delete_action">Supprimer</string>
+    <string name="accueil_possession">Consulter ma liste de livres</string>
 </resources>

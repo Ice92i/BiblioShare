@@ -49,6 +49,7 @@
         android:id="@+id/inscription_email_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
         android:textSize="25dp"/>
 
     <TextView
@@ -64,6 +65,7 @@
         android:id="@+id/inscription_mdp_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:textSize="25dp"/>
 
     <Button

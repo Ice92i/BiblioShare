@@ -20,10 +20,11 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import java.io.File
+import java.util.*
 
 class BarcodeScanningActivity : AppCompatActivity() {
 
-    var barcodeResult = 0
+    var barcodeResult = Vector<String>()
     var captureButton: Button? = null
     var currentFileD: File? = null
 
@@ -101,24 +102,36 @@ class BarcodeScanningActivity : AppCompatActivity() {
 
         val result = scanner.process(image)
             .addOnSuccessListener { barcodes ->
-                if(barcodes.size == 0){
-                    Toast.makeText(this, "Pas de code barre de livre détecté", Toast.LENGTH_LONG).show()
-                }
                 for (barcode in barcodes) {
                     when (barcode.format) {
                         Barcode.FORMAT_EAN_13 -> {
                             val result = barcode.displayValue
-                            Toast.makeText(this, result, Toast.LENGTH_LONG).show()
+                            barcodeResult.addElement(result)
                         }
                         Barcode.FORMAT_EAN_8 -> {
                             val result = barcode.displayValue
-                            Toast.makeText(this, result, Toast.LENGTH_LONG).show()
+                            barcodeResult.addElement(result)
                         }
                     }
 
                 }
+                if(barcodeResult.size == 0){
+                    Toast.makeText(this, "Pas de code barre de livre détecté", Toast.LENGTH_LONG).show()
+                }
+                else{
+                    val intent: Intent = Intent(this,ResultatScanActivity::class.java)
+                    val finalResult: Array<String> = Array<String>(size = barcodeResult.size, init = { _ -> "" })
+                    var i = 0
+                    for(s in barcodeResult){
+                        finalResult[i] = s
+                        i += 1
+                    }
+                    intent.putExtra("barcode", finalResult)
+                    startActivity(intent)
+                }
             }
             .addOnFailureListener {
+                Toast.makeText(this, "Problème de prise de photo", Toast.LENGTH_LONG).show()
             }
     }
 }

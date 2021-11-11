@@ -20,6 +20,8 @@
         android:id="@+id/connexion_email_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Votre email"
         android:textSize="25sp"/>
 
     <TextView
@@ -34,6 +36,8 @@
         android:id="@+id/connexion_mdp_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Votre mot de passe"
         android:textSize="25sp"/>
 
     <Button

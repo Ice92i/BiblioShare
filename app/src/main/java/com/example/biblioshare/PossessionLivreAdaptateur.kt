@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.uqac.ppm.biblioshare.model.Livre
+import com.example.biblioshare.modele.Livre
 import kotlinx.android.synthetic.main.activity_possession_detail.view.*
 
 //Utiliser la classe pour la liste des livres (possession) + détails

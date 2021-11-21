@@ -22,6 +22,11 @@ class AccueilActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
+        acceuil_profile_bouton.setOnClickListener {
+            val intent = Intent(this, ProfilActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

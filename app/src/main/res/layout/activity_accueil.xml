@@ -39,5 +39,13 @@
         android:text="@string/accueil_possession"
         android:textSize="21sp"/>
 
+    <Button
+        android:id="@+id/acceuil_profile_bouton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Profile utilisateur"
+        android:layout_marginTop="20dp"
+        android:textSize="21sp"/>
+
 
 </LinearLayout>

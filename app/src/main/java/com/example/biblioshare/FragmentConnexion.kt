@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_inscription.view.*
 
 
 class FragmentConnexion : Fragment() {
@@ -15,13 +14,13 @@ class FragmentConnexion : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_connexion, container, false)
+        // val rootView = inflater.inflate(R.layout.fragment_connexion, container, false)
 
-        val fragmentName = "Log In Fragment"
+        // val fragmentName = "Log In Fragment"
 
-        rootView.fragment_name.text = fragmentName
+        // rootView.fragment_name.text = fragmentName
 
-        return rootView
+        return inflater.inflate(R.layout.fragment_connexion, container, false)
     }
 
 }

@@ -4,13 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../BiblioShare/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.17395833333333333" />
+        <entry key="../BiblioShare/app/src/main/res/drawable-v24/rounded_corners_darkgrey.xml" value="0.25677083333333334" />
         <entry key="../BiblioShare/app/src/main/res/drawable-v24/rounded_corners_edittext.xml" value="0.10208333333333333" />
         <entry key="../BiblioShare/app/src/main/res/drawable/gradient.xml" value="0.153125" />
         <entry key="../BiblioShare/app/src/main/res/drawable/ic_launcher_background.xml" value="0.17395833333333333" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners.xml" value="0.153125" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners_button.xml" value="0.10260416666666666" />
+        <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners_white.xml" value="0.25677083333333334" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_accueil.xml" value="0.25" />
-        <entry key="../BiblioShare/app/src/main/res/layout/activity_connexion.xml" value="0.25" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_connexion.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_connexionbis.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_conversation.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_gestion.xml" value="0.16757246376811594" />
@@ -32,8 +34,9 @@
         <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche_resultat.xml" value="0.2796875" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_resultat_recherche.xml" value="0.1578125" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_scan_resultat.xml" value="0.23385416666666667" />
-        <entry key="../BiblioShare/app/src/main/res/layout/fragment_connexion.xml" value="0.125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/fragment_connexion.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/fragment_incription.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/layout/fragment_inscription.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/livre_view.xml" value="0.1578125" />
         <entry key="../BiblioShare/app/src/main/res/layout/message_view.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/view_livre.xml" value="0.2796875" />

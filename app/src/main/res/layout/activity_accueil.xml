@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/rounded_corners_button"
+            android:background="@drawable/rounded_corners_white"
             android:text="@string/accueil_recherche"
             android:textSize="21sp"
             app:icon="@android:drawable/ic_menu_search"
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/rounded_corners_button"
+            android:background="@drawable/rounded_corners_white"
             android:text="@string/accueil_ajout"
             android:textSize="21sp"
             app:icon="@android:drawable/ic_input_add"
@@ -57,7 +57,7 @@
         android:text="@string/accueil_possession"
         android:textSize="21sp"
         app:textAllCaps="false"
-        android:background="@drawable/rounded_corners_button"
+        android:background="@drawable/rounded_corners_white"
         app:icon="@drawable/books2"/>
 
 

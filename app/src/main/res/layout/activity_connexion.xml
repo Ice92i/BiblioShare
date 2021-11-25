@@ -14,22 +14,20 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:inputType="textEmailAddress"
-        android:hint="@string/emailExample"
+        android:hint="@string/email"
         android:textSize="35sp"
-        android:paddingStart="20dp"
-        android:background="@drawable/rounded_corners_edittext" />
+        android:background="@drawable/rounded_corners_white" />
 
     <EditText
         android:id="@+id/connexion_mdp_edittext"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:inputType="textPassword"
-        android:hint="@string/passwordExample"
+        android:hint="@string/mdp"
         android:textSize="30sp"
         android:padding="5dp"
-        android:paddingStart="20dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_corners_edittext" />
+        android:background="@drawable/rounded_corners_white" />
 
     <Button
         android:id="@+id/connexion_bouton"
@@ -40,7 +38,6 @@
         android:textSize="30sp"
         android:textAllCaps="false"
         android:textColor="@color/dark_warm_grey"
-        android:background="@drawable/rounded_corners_edittext" />
-
+        android:background="@drawable/rounded_corners_grey" />
 
 </LinearLayout>

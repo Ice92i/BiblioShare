@@ -1,19 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/warm_grey"
-    tools:context=".FragmentInscription">
+    android:background="@color/dark_warm_grey"
+    tools:context=".FragmentInscription"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <TextView
-        android:id="@+id/fragment_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
+    <EditText
+        android:id="@+id/inscription_prenom_edittext"
+        android:layout_width="360dp"
+        android:layout_height="65dp"
+        android:hint="@string/prenom"
         android:textSize="30sp"
-        android:text="Lorem Ipsum"
-        android:layout_gravity="center"/>
+        android:padding="5dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_corners_white"/>
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/inscription_nom_edittext"
+        android:layout_width="360dp"
+        android:layout_height="65dp"
+        android:hint="@string/nom"
+        android:textSize="30sp"
+        android:padding="5dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corners_white"/>
+
+    <EditText
+        android:id="@+id/inscription_pseudo_edittext"
+        android:layout_width="360dp"
+        android:layout_height="65dp"
+        android:hint="@string/pseudo"
+        android:textSize="30sp"
+        android:padding="5dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corners_white"/>
+
+    <EditText
+        android:id="@+id/inscription_email_edittext"
+        android:layout_width="360dp"
+        android:layout_height="65dp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        android:textSize="30sp"
+        android:padding="5dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corners_white"/>
+
+    <EditText
+        android:id="@+id/inscription_mdp_edittext"
+        android:layout_width="360dp"
+        android:layout_height="65dp"
+        android:inputType="textPassword"
+        android:hint="@string/mdp"
+        android:textSize="30sp"
+        android:padding="5dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corners_white"/>
+
+    <Button
+        android:id="@+id/inscription_bouton"
+        android:layout_width="370dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_corners_white"
+        android:gravity="center"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:text="@string/inscription_valider"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+</LinearLayout>

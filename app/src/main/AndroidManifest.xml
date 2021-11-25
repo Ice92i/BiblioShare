@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BiblioShare">
         <activity
-            android:name=".GestionActivity"
+            android:name=".GestionBisActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

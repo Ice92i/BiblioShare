@@ -4,10 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/warm_grey"
-    android:orientation="vertical"
-    android:gravity="center"
     tools:context=".FragmentConnexion"
-    >
+    android:orientation="vertical"
+    android:gravity="center">
 
     <EditText
         android:id="@+id/connexion_email_edittext"
@@ -41,6 +40,5 @@
         android:textAllCaps="false"
         android:textColor="@color/dark_warm_grey"
         android:background="@drawable/rounded_corners_edittext" />
-
 
 </LinearLayout>

@@ -6,7 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.uqac.ppm.biblioshare.model.Livre
+import com.example.biblioshare.modele.Livre
 import kotlinx.android.synthetic.main.activity_recherche_liste.*
 
 class RechercheListeActivity : AppCompatActivity() {

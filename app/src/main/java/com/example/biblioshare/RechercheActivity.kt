@@ -14,7 +14,7 @@ class RechercheActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_connexion)
+        setContentView(R.layout.zzzarchive_activity_connexion)
 
         recherche_bouton.setOnClickListener {
             val recherche = recherche_livre_edittext.text.toString()

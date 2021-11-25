@@ -28,13 +28,13 @@
         <activity android:name=".AccueilActivity" />
         <activity
             android:name=".ConnexionActivity"
-            android:parentActivityName=".GestionActivity" />
+            android:parentActivityName=".ZZZArchive_GestionActivity" />
         <activity
             android:name=".ConversationActivity"
             android:parentActivityName=".MessagerieActivity" />
         <activity
             android:name=".InscriptionActivity"
-            android:parentActivityName=".GestionActivity" />
+            android:parentActivityName=".ZZZArchive_GestionActivity" />
         <activity android:name=".MessagerieActivity" />
         <activity android:name=".NotFoundActivity" />
         <activity

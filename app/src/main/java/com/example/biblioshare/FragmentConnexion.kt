@@ -9,17 +9,15 @@ import androidx.fragment.app.Fragment
 
 class FragmentConnexion : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle? ): View? {
         // val rootView = inflater.inflate(R.layout.fragment_connexion, container, false)
 
         // val fragmentName = "Log In Fragment"
 
         // rootView.fragment_name.text = fragmentName
 
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_connexion, container, false)
     }
 

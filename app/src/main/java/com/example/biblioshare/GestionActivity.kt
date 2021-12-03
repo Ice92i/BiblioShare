@@ -28,14 +28,12 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_gestion.*
-import kotlinx.android.synthetic.main.fragment_connexion.*
-import kotlinx.android.synthetic.main.fragment_inscription.*
 
 private const val TAG = "GestionActivity"
 
-class GestionBisActivity  : AppCompatActivity() {
+class GestionActivity  : AppCompatActivity() {
 
-    lateinit var fusedLocationClient : FusedLocationProviderClient
+    private lateinit var fusedLocationClient : FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,6 +92,7 @@ class GestionBisActivity  : AppCompatActivity() {
         }.attach()
 
         setCustomTabTitles()
+/*
 
         inscription_bouton.setOnClickListener {
             val nom = inscription_nom_edittext.text.toString()
@@ -106,19 +105,24 @@ class GestionBisActivity  : AppCompatActivity() {
             createAccount(email,motdepasse,firebaseName)
         }
 
+
+
         connexion_bouton.setOnClickListener {
             val email = connexion_email_edittext.text.toString()
             val motdepasse = connexion_mdp_edittext.text.toString()
             signIn(email,motdepasse)
         }
 
+ */
+
     }
 
-    private fun createAccount(email: String, password: String,name: String) {
+    internal fun createAccount(email: String, password: String, name: String) {
         if (email == "" || password == "" || name == ""){
             Toast.makeText(baseContext, "Name/Email/Password is empty.",
                 Toast.LENGTH_SHORT).show()
-        }else {
+        }
+        else {
             Firebase.auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
@@ -134,20 +138,18 @@ class GestionBisActivity  : AppCompatActivity() {
                                 Manifest.permission.ACCESS_COARSE_LOCATION
                             ) != PackageManager.PERMISSION_GRANTED
                         ) {
+                            fusedLocationClient.lastLocation
+                                .addOnSuccessListener { curlocation ->
+                                    Log.d(
+                                        "TAG",
+                                        "getLastKnownLocation: ${curlocation.latitude} ${curlocation.longitude}"
+                                    )
+                                    Log.d(TAG, "createAccount: TEST")
+                                    Firebase.auth.currentUser?.let { CallFirebase().setLocation(it.uid,
+                                        curlocation.longitude.toString(), curlocation.latitude.toString()) }
+                                }
                         }
-                        fusedLocationClient.lastLocation
-                            .addOnSuccessListener { curlocation ->
-                                Log.d(
-                                    "TAG",
-                                    "getLastKnownLocation: ${curlocation.latitude} ${curlocation.longitude}"
-                                )
-                                Log.d(TAG, "createAccount: TEST")
-                                Firebase.auth.currentUser?.let { CallFirebase().setLocation(it.uid,
-                                    curlocation.longitude.toString(), curlocation.latitude.toString()) }
-                            }
-
-
-                        val intent = Intent(this, ConnexionActivity::class.java)
+                        val intent = Intent(this, AccueilActivity::class.java)
                         startActivity(intent)
 
                     } else {
@@ -161,8 +163,12 @@ class GestionBisActivity  : AppCompatActivity() {
         }
     }
 
-    private fun signIn(email: String, password: String) {
-        if (email != "" && password != ""){
+    internal fun signIn(email: String, password: String) {
+        if (email == "" || password == ""){
+            Toast.makeText(baseContext, "Email or Password is empty.",
+                Toast.LENGTH_SHORT).show()
+        }
+        else {
             Firebase.auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
@@ -174,8 +180,7 @@ class GestionBisActivity  : AppCompatActivity() {
                                 Manifest.permission.ACCESS_COARSE_LOCATION
                             ) != PackageManager.PERMISSION_GRANTED
                         ) {
-                        }
-                        fusedLocationClient.lastLocation
+                            fusedLocationClient.lastLocation
                             .addOnSuccessListener { curlocation ->
                                 Log.d(
                                     "TAG",
@@ -185,6 +190,8 @@ class GestionBisActivity  : AppCompatActivity() {
                                 Firebase.auth.currentUser?.let { CallFirebase().setLocation(it.uid,
                                     curlocation.longitude.toString(), curlocation.latitude.toString()) }
                             }
+                        }
+
 
 
 

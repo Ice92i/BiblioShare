@@ -16,8 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BiblioShare">
         <activity
-            android:name=".GestionBisActivity"
-            android:exported="true">
+            android:name=".GestionActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -12,14 +12,17 @@ class CallFirebase {
             "long" to long,
             "lat" to lat,
         )
-
+/*
         db.collection("location")
             .document(idUser)
             .set(docData)
             .addOnSuccessListener { Log.d("TAG", "Location successfully written!") }
             .addOnFailureListener { e -> Log.w("TAG", "Error writing document", e) }
-    }
 
+
+ */
+    }
+/*
     fun updateLocation(idUser: String, long : String, lat: String){
         val docData = mapOf(
             "long" to long,
@@ -31,5 +34,5 @@ class CallFirebase {
             .addOnSuccessListener { Log.d("TAG", "Location successfully written!") }
             .addOnFailureListener { e -> Log.w("TAG", "Error writing document", e) }
     }
-
+*/
 }

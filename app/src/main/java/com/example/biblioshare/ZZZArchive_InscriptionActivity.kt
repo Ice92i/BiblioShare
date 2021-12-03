@@ -18,7 +18,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_inscription.*
+import kotlinx.android.synthetic.main.zzzarchive_activity_inscription.*
 
 private const val TAG = "InscriptionActivity"
 
@@ -28,7 +28,7 @@ class InscriptionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_inscription)
+        setContentView(R.layout.zzzarchive_activity_inscription)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         inscription_bouton.setOnClickListener {

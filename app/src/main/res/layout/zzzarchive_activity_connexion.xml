@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/warm_grey"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".FragmentConnexion"
+    >
+
+    <EditText
+        android:id="@+id/connexion_email_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        android:textSize="35sp"
+        android:background="@drawable/rounded_corners_white" />
+
+    <EditText
+        android:id="@+id/connexion_mdp_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:inputType="textPassword"
+        android:hint="@string/mdp"
+        android:textSize="30sp"
+        android:padding="5dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_corners_white" />
+
+    <Button
+        android:id="@+id/connexion_bouton"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/connexion_valider"
+        android:textSize="30sp"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_warm_grey"
+        android:background="@drawable/rounded_corners_grey" />
+
+</LinearLayout>

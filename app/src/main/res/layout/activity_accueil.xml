@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     tools:context=".AccueilActivity">
@@ -15,29 +16,49 @@
         android:layout_marginStart="10dp"
         android:textSize="25sp"/>
 
-    <Button
-        android:id="@+id/accueil_recherche_bouton"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/accueil_recherche"
-        android:textSize="21sp"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
 
-    <Button
-        android:id="@+id/accueil_scan_bouton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/accueil_ajout"
-        android:textSize="21sp"/>
+        <Button
+            android:id="@+id/accueil_recherche_bouton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corners_white"
+            android:text="@string/accueil_recherche"
+            android:textSize="21sp"
+            app:icon="@android:drawable/ic_menu_search"
+            app:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/accueil_scan_bouton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corners_white"
+            android:text="@string/accueil_ajout"
+            android:textSize="21sp"
+            app:icon="@android:drawable/ic_input_add"
+            app:textAllCaps="false" />
+
+    </LinearLayout>
+
+
+
 
     <Button
         android:id="@+id/accueil_possession_bouton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:text="@string/accueil_possession"
-        android:textSize="21sp"/>
+        android:textSize="21sp"
+        app:textAllCaps="false"
+        android:background="@drawable/rounded_corners_white"
+        app:icon="@drawable/books2"/>
 
     <Button
         android:id="@+id/acceuil_profile_bouton"

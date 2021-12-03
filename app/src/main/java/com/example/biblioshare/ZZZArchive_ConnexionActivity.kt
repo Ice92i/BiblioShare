@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -16,7 +15,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_connexion.*
+import kotlinx.android.synthetic.main.zzzarchive_activity_connexion.*
 
 private const val TAG = "ConnexionActivity"
 
@@ -25,7 +24,7 @@ class ConnexionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_connexion)
+        setContentView(R.layout.zzzarchive_activity_connexion)
 
         connexion_bouton.setOnClickListener {
             val email = connexion_email_edittext.text.toString()

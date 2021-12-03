@@ -3,16 +3,14 @@
     <string name="message_bienvenue">Bienvenue sur Biblioshare !</string>
     <string name="gestion_connexion">Me connecter</string>
     <string name="gestion_nouveau">Créer un nouveau compte</string>
-    <string name="connexion_mdp">Mot de passe</string>
-    <string name="connexion_email">Email</string>
+    <string name="email">Email</string>
     <string name="connexion_valider">Me connecter</string>
     <string name="inscription_valider">Créer mon compte</string>
-    <string name="incription_mdp">Mot de passe</string>
-    <string name="inscription_email">Email</string>
-    <string name="inscription_prenom">Prénom</string>
-    <string name="inscription_nom">Nom</string>
+    <string name="mdp">Mot de passe</string>
+    <string name="prenom">Prénom</string>
+    <string name="nom">Nom</string>
     <string name="accueil_bonjour">Message bienvenue</string>
-    <string name="accueil_recherche">Rechercher un livre</string>
+    <string name="accueil_recherche">Rechercher</string>
     <string name="menu_messages">Messages</string>
     <string name="recherche_instructions">Veuillez entrer les informations du livre recherché</string>
     <string name="recherche_hint">ISBN, Auteur, Titre</string>
@@ -23,9 +21,9 @@
     <string name="menu_retour">Retour</string>
     <string name="MessageHint">Votre message</string>
     <string name="Send">Envoyer</string>
-    <string name="accueil_ajout">Ajouter un livre</string>
+    <string name="accueil_ajout">Ajouter</string>
     <string name="NotFound">Votre recherche n\'a pas abouti... Essayez encore !</string>
     <string name="menu_delete_action">Supprimer</string>
-    <string name="accueil_possession">Consulter ma liste de livres</string>
-    <string name="inscription_pseudo">Pseudonyme</string>
+    <string name="accueil_possession">Ma liste</string>
+    <string name="pseudo">Pseudonyme</string>
 </resources>

@@ -17,7 +17,8 @@
         android:theme="@style/Theme.BiblioShare">
         <activity
             android:name=".GestionActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,13 +29,13 @@
         <activity android:name=".AccueilActivity" />
         <activity
             android:name=".ConnexionActivity"
-            android:parentActivityName=".GestionActivity" />
+            android:parentActivityName=".ZZZArchive_GestionActivity" />
         <activity
             android:name=".ConversationActivity"
             android:parentActivityName=".MessagerieActivity" />
         <activity
             android:name=".InscriptionActivity"
-            android:parentActivityName=".GestionActivity" />
+            android:parentActivityName=".ZZZArchive_GestionActivity" />
         <activity android:name=".MessagerieActivity" />
         <activity android:name=".NotFoundActivity" />
         <activity

@@ -48,6 +48,7 @@
             android:parentActivityName=".RechercheListeActivity" />
         <activity android:name=".RechercheListeActivity" />
         <activity android:name=".ScanDetailActivity"/>
+        <activity android:name=".BarcodeScanningActivity"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

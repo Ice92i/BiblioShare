@@ -18,13 +18,13 @@ class RechercheDetailActivity : AppCompatActivity() {
 
         val livre = intent.getParcelableExtra<Livre>("id")
 
-        livre_titre_textview.text = livre?.titre
+        livre_titre_textview.text = livre?.Titre
 
-        livre_auteur_textview.text = livre?.auteur
+        livre_auteur_textview.text = livre?.Auteur
 
         //  livre_couverture_recherche_imageview
 
-        livre_categorie_textview.text = livre?.categorie
+       // livre_categorie_textview.text = livre?.categorie
 
         //  livre_proprietaire_textview.text = livre.getProprietaire
 

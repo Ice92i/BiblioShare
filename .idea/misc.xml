@@ -10,6 +10,7 @@
         <entry key="../BiblioShare/app/src/main/res/drawable/ic_launcher_background.xml" value="0.17395833333333333" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners.xml" value="0.153125" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners_button.xml" value="0.10260416666666666" />
+        <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners_image.xml" value="0.25677083333333334" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners_white.xml" value="0.25677083333333334" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_accueil.xml" value="0.25" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_connexion.xml" value="0.1" />
@@ -28,7 +29,8 @@
         <entry key="../BiblioShare/app/src/main/res/layout/activity_notfound.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_possession_detail.xml" value="0.2796875" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_possession_liste.xml" value="0.22552083333333334" />
-        <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche.xml" value="0.29534537953714957" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_profil.xml" value="0.2930253623188406" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche.xml" value="0.25" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche_detail.xml" value="0.2796875" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche_liste.xml" value="0.22552083333333334" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche_resultat.xml" value="0.2796875" />
@@ -43,7 +45,7 @@
         <entry key="../BiblioShare/app/src/main/res/layout/message_view.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/view_livre.xml" value="0.2796875" />
         <entry key="../BiblioShare/app/src/main/res/layout/view_livre_possession.xml" value="0.1" />
-        <entry key="../BiblioShare/app/src/main/res/layout/view_livre_recherche.xml" value="0.45" />
+        <entry key="../BiblioShare/app/src/main/res/layout/view_livre_recherche.xml" value="0.25" />
         <entry key="../BiblioShare/app/src/main/res/menu/menu_accueil.xml" value="0.2953125" />
         <entry key="../BiblioShare/app/src/main/res/menu/menu_complet.xml" value="0.32271368171032" />
         <entry key="../BiblioShare/app/src/main/res/menu/menu_compte.xml" value="0.1578125" />
@@ -59,9 +61,6 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_onglet_inscription.xml" />
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="15" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

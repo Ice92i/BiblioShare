@@ -1,36 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
     tools:context=".RechercheActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
-        android:text="@string/recherche_instructions"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:textSize="25sp"
-        android:gravity="center"/>
-
-    <EditText
-        android:id="@+id/recherche_livre_edittext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/recherche_hint"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
-        android:textSize="25sp"/>
+        android:layout_marginEnd="100dp"
+        android:text="@string/recherche_instructions"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/recherche_bouton"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:text="@string/recherche_valider"
-        android:textSize="23sp"/>
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/recherche_livre_edittext"
+            android:layout_width="298dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_corners_white"
+            android:hint="@string/recherche_hint"
+            android:inputType="textShortMessage"
+            android:paddingLeft="20dp"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/recherche_bouton"
+            android:layout_width="61dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/rounded_corners_darkgrey"
+            android:icon="@android:drawable/ic_menu_search"
+            android:text=""
+            android:paddingLeft="15dp"
+            app:icon="@android:drawable/ic_menu_search" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/livres_recherche_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"/>
 
 </LinearLayout>

@@ -21,6 +21,9 @@ class ProfilActivity : AppCompatActivity() {
         editTextPseudo.setText(Firebase.auth.currentUser?.displayName)
 
 
+
+
+        // Bouton retour menu
         profil_accueil_button.setOnClickListener {
             val intent = Intent(this, AccueilActivity::class.java)
             startActivity(intent)
@@ -40,7 +43,7 @@ class ProfilActivity : AppCompatActivity() {
             user!!.updateProfile(profileUpdates)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.d("TAG", "User profile updated.")
+                        Log.d("TAG", "Votre compte a été modifié.")
                     }
                 }
         }
@@ -50,7 +53,7 @@ class ProfilActivity : AppCompatActivity() {
             user.delete()
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.d("TAG", "User account deleted.")
+                        Log.d("TAG", "Votre compte a été supprimé.")
                         val intent = Intent(this, GestionActivity::class.java)
                         startActivity(intent)
                     }

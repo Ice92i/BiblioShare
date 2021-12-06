@@ -1,5 +1,6 @@
 package com.example.biblioshare
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,21 +19,35 @@ class RechercheLivreAdaptateur(val livres: List<Livre>) :
     override fun getItemCount() = livres.size
     var distance = 0
 
+    //OK
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LivreViewHolder {
-        val inflater: LayoutInflater = LayoutInflater.from(parent.context)
-        val view: View =
-            inflater.inflate(R.layout.view_livre_recherche, parent, false)
+        val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.view_livre_recherche, parent, false)
         return LivreViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: LivreViewHolder, position: Int) {
         val livre = livres[position]
         holder.livreView.livre_titre_textview.text =
-            livre.titre
+            livre.Titre
         holder.livreView.livre_auteur_textview.text =
-            livre.auteur
+            livre.Auteur
+        // Attention
+        holder.livreView.livre_auteur_textview.text =
+            livre.Image_du_livre
         holder.livreView.livre_distance_textview.text =
             distance.toString()
+        /*
+        holder.livreView.livre_Caterogie_textview.text =
+            livre.Categorie
+         */
+        holder.livreView.livre_couverture_imageview.setImageResource(0)
+
+        holder.livreView.setOnClickListener {
+            val intent = Intent(it.context, RechercheDetailActivity::class.java)
+            intent.putExtra("UID", livre)
+            it.context.startActivity(intent)
+        }
     }
 
 

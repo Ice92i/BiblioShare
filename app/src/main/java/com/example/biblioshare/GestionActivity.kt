@@ -20,12 +20,15 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import com.example.biblioshare.firebase.CallFirebase
+import com.example.biblioshare.modele.UserMessage
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_gestion.*
 
@@ -117,7 +120,7 @@ class GestionActivity  : AppCompatActivity() {
 
     }
 
-    internal fun createAccount(email: String, password: String, name: String) {
+    internal fun createAccount(email: String, password: String, name: String, pseudo: String) {
         if (email == "" || password == "" || name == ""){
             Toast.makeText(baseContext, "Name/Email/Password is empty.",
                 Toast.LENGTH_SHORT).show()
@@ -127,6 +130,7 @@ class GestionActivity  : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         Log.d("TAG", "createUserWithEmail:success")
+                        task.result.user?.let { saveUserForMessage(it.uid, pseudo) }
                         val profileUpdates =
                             UserProfileChangeRequest.Builder().setDisplayName(name).build()
                         Firebase.auth.currentUser?.updateProfile(profileUpdates)
@@ -204,6 +208,25 @@ class GestionActivity  : AppCompatActivity() {
                     }
                 }
         }
+    }
+
+    private fun saveUserForMessage(uid: String, pseudo: String)
+    {
+        val uid = FirebaseAuth.getInstance().uid ?: return
+        val user = UserMessage(uid, pseudo)
+
+        val db = Firebase.firestore
+
+        val userData = hashMapOf(
+            "uid" to user.uid,
+            "username" to user.username,
+        )
+
+        db.collection("usermessage")
+            .document(user.uid)
+            .set(userData)
+            .addOnSuccessListener { Log.d("Message", "User data successfully written!") }
+            .addOnFailureListener { e -> Log.w("Message", "Error writing user data", e) }
     }
 
     private fun setCustomTabTitles() {

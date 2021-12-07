@@ -1,44 +1,38 @@
 package com.example.biblioshare
 
-import android.media.Image
 import android.util.Log
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
-class Livre {
-    public val Titre: String? = null
-    public val ISBN: String? = null
-    public val Auteur: String? = null
-    public val Image_Du_Livre: String? = null
-}
+data class Livre (
+    val titre: String? = "",
+    val isbn: String? = "",
+    val auteur: String? = "",
+    val image: String? = ""
+)
 
 class FirebaseConnection {
 
     companion object Singleton {
-        val databaseRef = FirebaseDatabase.getInstance().getReference("livres")
-        val livreList = arrayListOf<Livre>()
-    }
+        val databaseRef = FirebaseFirestore.getInstance()
+        val livreList: Vector<Livre> = Vector()
 
-    fun updateData(callback:()->Unit){
-        databaseRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                livreList.clear()
-                Log.e("ok","ok")
-                for (ds in snapshot.children){
-                    val livre = ds.getValue(Livre::class.java)
-                    if (livre!=null) {
-                        livreList.add(livre)
+        fun readFireStoreData(){
+            databaseRef.collection("livres")
+                .get()
+                .addOnCompleteListener{
+                    if(it.isSuccessful){
+                        for(livre in it.result!!){
+                            val newLivre: Livre = Livre(livre.data.getValue("Titre").toString(),
+                                livre.data.getValue("ISBN").toString(),
+                                livre.data.getValue("Auteur").toString(),
+                                livre.data.getValue("Image_du_livre").toString()
+                            )
+                            livreList.add(newLivre)
+                            Log.e("ok",newLivre.auteur!!)
+                        }
                     }
                 }
-                callback()
-            }
-            override fun onCancelled(error: DatabaseError) {
-                Log.w("Failed to read value.", error.toException())
-            }
-        })
+        }
     }
-    fun updateTask(livre: Livre) = databaseRef.child(livre.ISBN!!).setValue(livre)
-    fun deleteTask(livre: Livre) = databaseRef.child(livre.ISBN!!).removeValue()
 }

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.biblioshare.modele.UserMessage
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_inscription.*
 
 
@@ -29,7 +31,7 @@ class FragmentInscription : Fragment() {
             val motdepasse = inscription_mdp_edittext.text.toString()
             val firebaseName = "${nom.uppercase()} $prenom"
 
-            (activity as GestionActivity).createAccount(email,motdepasse,firebaseName)
+            (activity as GestionActivity).createAccount(email,motdepasse,firebaseName, pseudo)
         }
     }
 }

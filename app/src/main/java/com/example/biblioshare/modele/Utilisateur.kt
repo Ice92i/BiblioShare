@@ -11,3 +11,8 @@ data class Utilisateur(
     val motdepasse: Int,
     val active: Boolean
 ) : Parcelable
+
+@Parcelize
+class UserMessage(val uid: String, val username: String): Parcelable {
+    constructor() : this("", "")
+}

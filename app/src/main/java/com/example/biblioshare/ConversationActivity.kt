@@ -48,8 +48,9 @@ class ConversationActivity : AppCompatActivity() {
         val currentUser = AccueilActivity.currentUser ?: return
         val db = FirebaseFirestore.getInstance()
 
-        db.collection("message").document(currentUser.uid).collection(otherUser!!.uid)
-            .addSnapshotListener { value, e ->
+        val messageRef = db.collection("message").document(currentUser.uid).collection(otherUser!!.uid)
+
+        messageRef.addSnapshotListener { value, e ->
                 if (e != null) {
                     Log.w("conversationD", "Listen failed.", e)
                     return@addSnapshotListener
@@ -65,6 +66,7 @@ class ConversationActivity : AppCompatActivity() {
                         } else {
                             adapter.add(ChatOtherUserItem(chatMessage.text, otherUser!!))
                         }
+
 
                     }
                 }

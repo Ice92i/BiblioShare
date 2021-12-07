@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/rounded_edittext"
+        android:background="@drawable/rounded_edittext_darkblue"
         android:textColor="@color/white"
         android:maxWidth="240dp"
         android:padding="16dp"

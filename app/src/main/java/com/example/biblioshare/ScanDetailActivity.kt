@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
@@ -21,51 +20,44 @@ class ScanDetailActivity : AppCompatActivity() {
     var image: ImageView? = null
     var okbutton: Button? = null
     var cancelbutton: Button? = null
-    lateinit var ref: DatabaseReference
+    val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //if(FirebaseConnection.livreList != null){
-        val db = FirebaseFirestore.getInstance()
-            setContentView(R.layout.activity_scan_detail)
-            okbutton = findViewById(R.id.valider_scan_bouton)
-            cancelbutton = findViewById(R.id.rescanner_bouton)
-            titre = findViewById(R.id.livre_titre_textview)
-            auteur = findViewById(R.id.livre_auteur_textview)
-            image = findViewById(R.id.livre_couverture_scan_imageview)
-            val barcodeResult2 = intent.getStringArrayExtra("barcode")
-            if (barcodeResult2 != null) {
-                for (s in barcodeResult2){
-                    barcodeResult.addElement(s)
-                }
+        setContentView(R.layout.activity_scan_detail)
+        okbutton = findViewById(R.id.valider_scan_bouton)
+        cancelbutton = findViewById(R.id.rescanner_bouton)
+        titre = findViewById(R.id.livre_titre_textview)
+        auteur = findViewById(R.id.livre_auteur_textview)
+        image = findViewById(R.id.livre_couverture_scan_imageview)
+        val barcodeResult2 = intent.getStringArrayExtra("barcode")
+        if (barcodeResult2 != null) {
+            for (s in barcodeResult2){
+                barcodeResult.addElement(s)
             }
-            if(!barcodeResult.isEmpty()){
-                var barcode: String = barcodeResult.firstElement()
-                db.collection("livres")
-                    .get()
-                    .addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            for (livre in it.result) {
-                                Log.e("ok",livre.data.getValue("ISBN").toString())
-                                if (livre.data.getValue("ISBN") == barcode) {
-                                    titre!!.text = livre.data.getValue("Titre").toString()
-                                    auteur!!.text = livre.data.getValue("Auteur").toString()
-                                }
+        }
+        if(!barcodeResult.isEmpty()){
+            var barcode: String = barcodeResult.firstElement()
+            db.collection("livres")
+                .get()
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        for (livre in it.result) {
+                            Log.e("ok",livre.data.getValue("ISBN").toString())
+                            if (livre.data.getValue("ISBN") == barcode) {
+                                titre!!.text = livre.data.getValue("Titre").toString()
+                                auteur!!.text = livre.data.getValue("Auteur").toString()
                             }
                         }
                     }
-                okbutton?.setOnClickListener {onOkCapture(barcode)}
-                cancelbutton?.setOnClickListener {onCancelCapture(barcode)}
-            }
-            else{
-                val intent: Intent = Intent(this,BarcodeScanningActivity::class.java)
-                startActivity(intent)
-            }
-        //}
-        //else{
-        //    val intent: Intent = Intent(this,BarcodeScanningActivity::class.java)
-        //      startActivity(intent)
-        //}
+                }
+            okbutton?.setOnClickListener {onOkCapture(barcode)}
+            cancelbutton?.setOnClickListener {onCancelCapture(barcode)}
+        }
+        else{
+            val intent: Intent = Intent(this,BarcodeScanningActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun onOkCapture(s: String?) {
@@ -82,7 +74,19 @@ class ScanDetailActivity : AppCompatActivity() {
     private fun continueList(){
         if(!barcodeResult.isEmpty()){
             var barcode: String = barcodeResult.firstElement()
-            titre!!.text = barcode
+            db.collection("livres")
+                .get()
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        for (livre in it.result) {
+                            Log.e("ok",livre.data.getValue("ISBN").toString())
+                            if (livre.data.getValue("ISBN") == barcode) {
+                                titre!!.text = livre.data.getValue("Titre").toString()
+                                auteur!!.text = livre.data.getValue("Auteur").toString()
+                            }
+                        }
+                    }
+                }
             okbutton?.setOnClickListener {onOkCapture(barcode)}
             cancelbutton?.setOnClickListener {onCancelCapture(barcode)}
         }

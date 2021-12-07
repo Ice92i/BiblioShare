@@ -12,9 +12,20 @@ data class Utilisateur(
     val motdepasse : String,
 //    val active : Boolean,
     var utilisateurDocumentID : String,
-    val dateReception : Date
+    var UID : String,
+    val dateReception : Date,
+    var LatLocation : Double,
+    var LonLocation : Double
 
 
 ) : Parcelable {
-    constructor() : this("", "", "", "", "", Date(0))
+    constructor() : this("",
+        "",
+        "",
+        "",
+        "",
+        "",
+        Date(0),
+        0.0,
+        0.0)
 }

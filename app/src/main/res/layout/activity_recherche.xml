@@ -44,16 +44,11 @@
             android:layout_marginTop="17dp"
             android:background="@drawable/rounded_corners_darkgrey"
             android:icon="@android:drawable/ic_menu_search"
-            android:text=""
             android:paddingLeft="15dp"
-            app:icon="@android:drawable/ic_menu_search" />
+            android:text=""
+            app:icon="@android:drawable/ic_menu_search"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/livres_recherche_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"/>
 
 </LinearLayout>

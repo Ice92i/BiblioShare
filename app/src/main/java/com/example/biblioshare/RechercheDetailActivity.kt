@@ -6,9 +6,14 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.biblioshare.modele.Livre
+import com.example.biblioshare.modele.UserMessage
 import kotlinx.android.synthetic.main.activity_recherche_detail.*
 
 class RechercheDetailActivity : AppCompatActivity() {
+
+    companion object {
+        val USER_KEY = "USER_KEY"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +34,13 @@ class RechercheDetailActivity : AppCompatActivity() {
         //  livre_proprietaire_textview.text = livre.getProprietaire
 
         //  livre_proprietaire_textview.text = livre.getProprietaire
+    }
+
+    private fun launchConversation() {
+        val userToMessage = UserMessage(/* uid */"",/* pseudo */ "")
+        val intentChatLog = Intent(this, ConversationActivity::class.java)
+        intentChatLog.putExtra(USER_KEY, userToMessage)
+        startActivity(intentChatLog)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

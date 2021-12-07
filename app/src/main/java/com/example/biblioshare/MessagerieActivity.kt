@@ -7,9 +7,14 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.example.biblioshare.modele.Chat
+import com.example.biblioshare.modele.ChatMessage
+import com.example.biblioshare.modele.ChatOtherUserItem
+import com.example.biblioshare.modele.ChatUserItem
 import com.example.biblioshare.modele.UserMessage
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.auth.User
+import com.google.firebase.firestore.ktx.toObject
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -18,11 +23,6 @@ import kotlinx.android.synthetic.main.latest_messages_row.view.*
 
 
 class MessagerieActivity : AppCompatActivity() {
-
-    companion object {
-        var currentUser: UserMessage? = null
-        val USER_KEY = "USER_KEY" //mettre ça dans l'activity de base
-    }
 
     val adapter = GroupAdapter<GroupieViewHolder>()
 
@@ -37,47 +37,55 @@ class MessagerieActivity : AppCompatActivity() {
             val latestMessageItem = item as LatestMessageRow
             Log.d("LatestMessages", "")
 
-            val intentChatLog = Intent(view.context, MessagerieActivity::class.java)
-            intentChatLog.putExtra(USER_KEY, latestMessageItem.chatPartnerUser)
+            val intentChatLog = Intent(view.context, ConversationActivity::class.java)
+            intentChatLog.putExtra(RechercheDetailActivity.USER_KEY, latestMessageItem.chatPartnerUser)
             startActivity(intentChatLog)
         }
 
-        fetchCurrentUser()
-
         listenForLatestMessages()
-
     }
 
-    class LatestMessageRow(val chatMessage: Chat): Item<GroupieViewHolder>() {
+    /*private fun dummyConversation() {
+        val dummyUser = UserMessage("soQ2rWHHbnQV0EokV8vwhbO1xhD2", "test3")
+        val intentChatLog = Intent(this, ConversationActivity::class.java)
+        intentChatLog.putExtra(RechercheDetailActivity.USER_KEY, dummyUser)
+        startActivity(intentChatLog)
+    }*/
+
+    class LatestMessageRow(val chatMessage: ChatMessage): Item<GroupieViewHolder>() {
         var chatPartnerUser: UserMessage? = null
         override fun bind(p0: GroupieViewHolder, p1: Int) {
             p0.itemView.textView_message_latest_messages_row.text = chatMessage.text
 
-            val chatPartnerId: String = if (chatMessage.userId == currentUser?.uid) {
+            val chatPartnerId: String = if (chatMessage.userId == AccueilActivity.currentUser?.uid) {
                 chatMessage.otherUserId
             } else {
                 chatMessage.userId
             }
 
-            /*val ref = FirebaseDatabase.getInstance().getReference("/users/$chatPartnerId")
-            ref.addListenerForSingleValueEvent(object: ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    chatPartnerUser = snapshot.getValue(User::class.java)
-                    p0.itemView.textView_username_latest_messages_row.text = chatPartnerUser?.username
-                    Picasso.get().load(chatPartnerUser?.profileImageUrl).into(p0.itemView.imageView_latest_messages_row)
-                    Log.d("LatestMessages", "ChatPartner : ${chatPartnerUser?.username}, ${chatPartnerUser?.uid}")
+            val db = FirebaseFirestore.getInstance()
+            val userDocRef = db.collection("usermessage").document(chatPartnerId)
+            userDocRef.get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        Log.d("messagerie", "DocumentSnapshot data: ${document.data}")
+                        chatPartnerUser = document.toObject<UserMessage>()
+                        p0.itemView.textView_username_latest_messages_row.text = chatPartnerUser?.username
+                    } else {
+                        Log.d("messagerie", "No such document")
+                    }
                 }
-                override fun onCancelled(error: DatabaseError) {
-
+                .addOnFailureListener { exception ->
+                    Log.d("messagerie", "get failed with ", exception)
                 }
-            })*/
         }
+
         override fun getLayout(): Int {
             return R.layout.latest_messages_row
         }
     }
 
-    val latestMessagesMap = HashMap<String, Chat>()
+    val latestMessagesMap = HashMap<String, ChatMessage>()
 
     private fun refreshRecyclerViewMessages() {
         adapter.clear()
@@ -87,45 +95,27 @@ class MessagerieActivity : AppCompatActivity() {
     }
 
     private fun listenForLatestMessages() {
-        val currentUserUID = currentUser?.uid ?: return
-        /*val ref = FirebaseDatabase.getInstance().getReference("/latest-messages/$currentUserUID")
-        ref.addChildEventListener(object: ChildEventListener{
-            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                val chatMessage = snapshot.getValue(ChatMessage::class.java) ?: return
+        val currentUserUID = AccueilActivity.currentUser?.uid ?: return
 
-                latestMessagesMap[snapshot.key!!] = chatMessage
-                refreshRecyclerViewMessages()
-            }
-            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                val chatMessage = snapshot.getValue(ChatMessage::class.java) ?: return
+        val db = FirebaseFirestore.getInstance()
 
-                latestMessagesMap[snapshot.key!!] = chatMessage
-                refreshRecyclerViewMessages()
+        db.collection("latestmessage").document(currentUserUID).collection("message")
+            .addSnapshotListener { value, e ->
+                if (e != null) {
+                    Log.w("conversationD", "Listen failed.", e)
+                    return@addSnapshotListener
+                }
+                adapter.clear()
+                for (document in value!!) {
+                    Log.d("conversationD", "${document.id} => ${document.data}")
+                    val chatMessage = document.toObject<ChatMessage>()
+                    if (chatMessage != null) {
+                        Log.d("ChatLog", "Message found : ${chatMessage.text}")
+                        latestMessagesMap[document.id] = chatMessage
+                        refreshRecyclerViewMessages()
+                    }
+                }
             }
-            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
-
-            }
-            override fun onChildRemoved(snapshot: DataSnapshot) {
-
-            }
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-        })*/
-    }
-
-    private fun fetchCurrentUser() {
-        val uid = FirebaseAuth.getInstance().uid
-        /*val ref = FirebaseDatabase.getInstance().getReference(("/users/$uid"))
-        ref.addListenerForSingleValueEvent(object: ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                currentUser = snapshot.getValue(User::class.java)
-                Log.d("LatestMessages", "current user : ${currentUser?.username}")
-            }
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-        })*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -6,11 +6,7 @@ import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.chat_other_user_row.view.*
 import kotlinx.android.synthetic.main.chat_user_row.view.*
 
-class Chat(val id: String, val text: String, val otherUserId: String, val userId: String, val timestamp: Long) {
-    constructor() : this("", "", "", "", -1)
-}
-
-class ChatOtherUserItem(val text: String): Item<GroupieViewHolder>() {
+class ChatOtherUserItem(val text: String,  val user: UserMessage): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.textView_other_user_row.text = text
     }
@@ -20,7 +16,7 @@ class ChatOtherUserItem(val text: String): Item<GroupieViewHolder>() {
     }
 }
 
-class ChatUserItem(val text: String): Item<GroupieViewHolder>() {
+class ChatUserItem(val text: String,  val user: UserMessage): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.textView_user_row.text = text
     }
@@ -30,6 +26,6 @@ class ChatUserItem(val text: String): Item<GroupieViewHolder>() {
     }
 }
 
-class ChatMessage(val id: String, val text: String, val otherUserId: String, val userId: String) {
-    constructor() : this("", "", "", "")
+class ChatMessage(val text: String, val otherUserId: String, val userId: String) {
+    constructor() : this("", "", "")
 }

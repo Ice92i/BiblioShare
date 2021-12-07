@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/rounded_edittext"
+        android:textColor="@color/white"
         android:maxWidth="240dp"
         android:padding="16dp"
         android:text="This is my message"

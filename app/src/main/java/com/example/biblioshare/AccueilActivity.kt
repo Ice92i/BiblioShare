@@ -2,15 +2,27 @@ package com.example.biblioshare
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.biblioshare.modele.UserMessage
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import kotlinx.android.synthetic.main.activity_accueil.*
 
 class AccueilActivity : AppCompatActivity() {
+
+    companion object {
+        var currentUser: UserMessage? = null
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_accueil)
+
+        fetchCurrentUser()
 
         accueil_recherche_bouton.setOnClickListener {
             val intent = Intent(this, RechercheActivity::class.java)
@@ -26,6 +38,29 @@ class AccueilActivity : AppCompatActivity() {
             val intent = Intent(this, ProfilActivity::class.java)
             startActivity(intent)
 
+        }
+    }
+
+    private fun fetchCurrentUser() {
+        val db = FirebaseFirestore.getInstance()
+        val uid = FirebaseAuth.getInstance().uid
+
+        if(uid != null) {
+            val userDocRef = db.collection("usermessage").document(uid)
+            userDocRef.get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        Log.d("accueil", "DocumentSnapshot data: ${document.data}")
+                        currentUser = document.toObject<UserMessage>()
+                        Log.d("accueil", "${currentUser?.username}, ${currentUser?.uid}")
+                        //dummyConversation()
+                    } else {
+                        Log.d("accueil", "No such document")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("accueil", "get failed with ", exception)
+                }
         }
     }
 

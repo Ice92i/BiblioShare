@@ -5,8 +5,14 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.biblioshare.AccueilActivity.Companion.currentUser
+import com.example.biblioshare.modele.ChatMessage
+import com.example.biblioshare.modele.ChatOtherUserItem
+import com.example.biblioshare.modele.ChatUserItem
 import com.example.biblioshare.modele.UserMessage
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -24,13 +30,14 @@ class ConversationActivity : AppCompatActivity() {
 
         recyclerview_chatlog.adapter = adapter
 
-        //otherUser = intent.getParcelableExtra<UserMessage>()NewMessageActivity.USER_KEY)
+        otherUser = intent.getParcelableExtra<UserMessage>(RechercheDetailActivity.USER_KEY)
 
         supportActionBar?.title = otherUser?.username
         listenForMessages()
 
+
         send_button_chatlog.setOnClickListener {
-            Log.d("ChatLog", "Attempt to send message")
+            Log.d("conversationD", "Attempt to send message")
             if (otherUser != null) {
                 sendMessage()
             }
@@ -38,63 +45,58 @@ class ConversationActivity : AppCompatActivity() {
     }
 
     private fun listenForMessages() {
-        val currentUser = LatestMessagesActivity.currentUser ?: return
-        val ref = FirebaseDatabase.getInstance().getReference("/user-messages/${currentUser.uid}/${otherUser?.uid}")
-        ref.addChildEventListener(object: ChildEventListener {
-            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                val chatMessage = snapshot.getValue(ChatMessage::class.java)
-                if (chatMessage != null) {
-                    Log.d("ChatLog", "Message found : ${chatMessage.text}")
-                    if(chatMessage.userId == currentUser.uid) {
-                        adapter.add(ChatUserItem(chatMessage.text, currentUser))
-                    }
-                    else {
-                        adapter.add(ChatOtherUserItem(chatMessage.text, otherUser!!))
-                    }
+        val currentUser = AccueilActivity.currentUser ?: return
+        val db = FirebaseFirestore.getInstance()
 
+        db.collection("message").document(currentUser.uid).collection(otherUser!!.uid)
+            .addSnapshotListener { value, e ->
+                if (e != null) {
+                    Log.w("conversationD", "Listen failed.", e)
+                    return@addSnapshotListener
                 }
-                recyclerview_chatlog.scrollToPosition(adapter.itemCount - 1)
-            }
-            override fun onCancelled(error: DatabaseError) {
+                adapter.clear()
+                for (document in value!!) {
+                    Log.d("conversationD", "${document.id} => ${document.data}")
+                    val chatMessage = document.toObject<ChatMessage>()
+                    if (chatMessage != null) {
+                        Log.d("ChatLog", "Message found : ${chatMessage.text}")
+                        if (chatMessage.userId == currentUser.uid) {
+                            adapter.add(ChatUserItem(chatMessage.text, currentUser))
+                        } else {
+                            adapter.add(ChatOtherUserItem(chatMessage.text, otherUser!!))
+                        }
 
+                    }
+                }
             }
-            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-
-            }
-            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
-
-            }
-            override fun onChildRemoved(snapshot: DataSnapshot) {
-
-            }
-        })
-
     }
 
     private fun sendMessage() {
         val text = message_edittext_chatlog.text.toString()
         if(text == ""){
-            Log.d("ChatLog", "Failed to send message : Empty message")
+            Log.d("conversationD", "Failed to send message : Empty message")
             return
         }
-        val userId= FirebaseAuth.getInstance().uid
+        val userId = FirebaseAuth.getInstance().uid
         val otherUserId = otherUser?.uid ?: return
 
         if(userId == null) return
 
-        val referenceSend = FirebaseDatabase.getInstance().getReference("/user-messages/$userId/$otherUserId").push()
-        val chatMessageSend = ChatMessage(referenceSend.key!!, text, otherUserId, userId, System.currentTimeMillis() / 1000)
-        referenceSend.setValue(chatMessageSend)
-            .addOnSuccessListener {
-                val referenceReceive = FirebaseDatabase.getInstance().getReference("/user-messages/$otherUserId/$userId").push()
-                val chatMessageReceive = ChatMessage(referenceReceive.key!!, text, otherUserId, userId, System.currentTimeMillis() / 1000)
-                referenceReceive.setValue(chatMessageReceive)
+        val db = FirebaseFirestore.getInstance()
+        val refSend = db.collection("message").document(userId).collection(otherUserId)
+        val chatMessageSend = ChatMessage(text, otherUserId, userId)
+        refSend.add(chatMessageSend)
+            .addOnSuccessListener { documentReference ->
+                Log.d("conversationD", "DocumentSnapshot written with ID: ${documentReference.id}")
+                val refReceive = db.collection("message").document(otherUserId).collection(userId)
+                val chatMessageReceive = ChatMessage(text, otherUserId, userId)
+                refReceive.add(chatMessageReceive)
                     .addOnSuccessListener {
-                        val latestMessageSendRef = FirebaseDatabase.getInstance().getReference("latest-messages/$userId/$otherUserId")
-                        latestMessageSendRef.setValue(chatMessageSend)
+                        val latestMessageSendRef = db.collection("latestmessage").document(userId).collection("message").document(otherUserId)
+                        latestMessageSendRef.set(chatMessageSend)
                             .addOnSuccessListener {
-                                val latestMessageReceiveRef = FirebaseDatabase.getInstance().getReference("latest-messages/$otherUserId/$userId")
-                                latestMessageReceiveRef.setValue(chatMessageReceive)
+                                val latestMessageSendRef = db.collection("latestmessage").document(otherUserId).collection("message").document(userId)
+                                latestMessageSendRef.set(chatMessageReceive)
                                     .addOnSuccessListener {
                                         message_edittext_chatlog.text.clear()
                                         recyclerview_chatlog.scrollToPosition(adapter.itemCount - 1)

@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 class ScanDetailActivity : AppCompatActivity() {
@@ -24,8 +25,8 @@ class ScanDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FirebaseConnection.readFireStoreData()
         //if(FirebaseConnection.livreList != null){
+        val db = FirebaseFirestore.getInstance()
             setContentView(R.layout.activity_scan_detail)
             okbutton = findViewById(R.id.valider_scan_bouton)
             cancelbutton = findViewById(R.id.rescanner_bouton)
@@ -40,14 +41,19 @@ class ScanDetailActivity : AppCompatActivity() {
             }
             if(!barcodeResult.isEmpty()){
                 var barcode: String = barcodeResult.firstElement()
-                for(livre:Livre in FirebaseConnection.livreList){
-                    if(livre.isbn == barcode){
-                        titre!!.text = livre.titre
-                        auteur!!.text = livre.auteur
+                db.collection("livres")
+                    .get()
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            for (livre in it.result) {
+                                Log.e("ok",livre.data.getValue("ISBN").toString())
+                                if (livre.data.getValue("ISBN") == barcode) {
+                                    titre!!.text = livre.data.getValue("Titre").toString()
+                                    auteur!!.text = livre.data.getValue("Auteur").toString()
+                                }
+                            }
+                        }
                     }
-                    titre!!.text = barcode
-                    Log.e("ok",livre.auteur!!)
-                }
                 okbutton?.setOnClickListener {onOkCapture(barcode)}
                 cancelbutton?.setOnClickListener {onCancelCapture(barcode)}
             }

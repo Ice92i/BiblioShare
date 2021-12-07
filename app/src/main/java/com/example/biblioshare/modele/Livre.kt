@@ -15,6 +15,6 @@ data class Livre(
 //    val categorie: String,
 //    val dateScan : Date
 
-) {
+) : Parcelable {
     constructor() : this("", "", "", null, "")
 }

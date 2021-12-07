@@ -156,8 +156,9 @@ class RechercheActivity : AppCompatActivity() {
                             .append(livre.data.getValue("ISBN"))
                             .append("\n\n")
 
-                                
-                        livre.collection("utilisateurs")
+/*
+                        db.collection("livres").document(livre.id)
+                            .collection("utilisateurs")
                             .get().addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     Log.d(TAG, "Accès aux utilisateurs")
@@ -169,6 +170,40 @@ class RechercheActivity : AppCompatActivity() {
                                         utilId = util.id
                                     }
                                 }
+                            }
+
+ */
+
+                        db.collection("livres").document(livre.id)
+                            .collection("utilisateurs").addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+
+                                if (firebaseFirestoreException != null) {
+                                    Log.e(
+                                        "FIRESTORE",
+                                        "Cards listener error.",
+                                        firebaseFirestoreException
+                                    )
+                                    return@addSnapshotListener
+                                }
+
+                                utilisateurs = mutableListOf<Utilisateur>()
+                                querySnapshot!!.documents.forEach {
+
+                                    val ref = it.reference
+                                    val utilDocumentID = ref.id
+                                    Log.d("FIRESTORE", "Id utilisateur : " + utilDocumentID)
+                                    //val utilPseudo = ref.data.getValue("Pseudonyme").toString()
+
+                                    // we need to add this ID to our Card item
+                                    var util = (it.toObject(Utilisateur::class.java)!!)
+                                    util.utilisateurDocumentID = utilDocumentID
+                                    Log.d("FIRESTORE", "Pseudo utilisateur selon Firestore : " + it.data!!.getValue("Pseudonyme"))
+                                    //Log.d("FIRESTORE", "oui")
+
+                                    utilisateurs.add(util)
+                                    Log.d(TAG, "Pseudo du livre dans la liste : " + util.Pseudonyme)
+                                }
+                            }
 /*
                         db.collection("restaurants").document("123").collection("reviews").get()
                             .then(querySnapshot => {
@@ -178,22 +213,24 @@ class RechercheActivity : AppCompatActivity() {
                             })
 
  */
-                            }
+
 
                         resultLivre.toString()
                         resultUtilisateur.toString()
                         Log.d(TAG, "Id du livre : ${livre.id}")
-                        Log.d(TAG, "Recherche : $resultLivre")
-                        Log.d(TAG, "Id de l'utilisateur : $utilId")
-                        Log.d(TAG, "Utilisateur : $resultUtilisateur")
+                        Log.d("FIRESTORE", resultLivre.toString())
+                        //Log.d(TAG, "Id de l'utilisateur : $utilId")
+                       // Log.d(TAG, "Utilisateur : $resultUtilisateur")
 
                     }
                 }
-
             }
+
+        }
 
     }
 
+/*
     fun addCardsListener(
         context: Context, selectedUser: String, onListen: (List<Utilisateur>) -> Unit
     ): ListenerRegistration {
@@ -205,7 +242,7 @@ class RechercheActivity : AppCompatActivity() {
                     return@addSnapshotListener
                 }
 
-                val utilisateurs = mutableListOf<Utilisateur>()
+                utilisateurs = mutableListOf<Utilisateur>()
                 querySnapshot!!.documents.forEach {
 
                     val ref = it.reference
@@ -216,11 +253,13 @@ class RechercheActivity : AppCompatActivity() {
                     var util = (it.toObject(Utilisateur::class.java)!!)
                     util.utilisateurDocumentID = utilDocumentID
 
-                    utilisateurs.add
+                    utilisateurs.add(util)
                 }
                 onListen(utilisateurs)
             }
     }
+
+ */
 /*
     class LivreViewHolder(val livreView: View) : RecyclerView.ViewHolder(livreView) {
 
@@ -249,8 +288,3 @@ class RechercheActivity : AppCompatActivity() {
 
 
  */
-}
-
-private fun DocumentSnapshot.collection(s: String): Any {
-
-}

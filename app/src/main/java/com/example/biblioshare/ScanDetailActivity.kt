@@ -11,6 +11,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
+import android.graphics.BitmapFactory
+
+import android.graphics.Bitmap
+import com.squareup.picasso.Picasso
+import java.io.InputStream
+import java.net.URL
+
 
 class ScanDetailActivity : AppCompatActivity() {
 
@@ -43,10 +50,11 @@ class ScanDetailActivity : AppCompatActivity() {
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
                         for (livre in it.result) {
-                            Log.e("ok",livre.data.getValue("ISBN").toString())
+                            Log.e("ok",livre.data.getValue("ImageLien").toString())
                             if (livre.data.getValue("ISBN") == barcode) {
                                 titre!!.text = livre.data.getValue("Titre").toString()
                                 auteur!!.text = livre.data.getValue("Auteur").toString()
+                                Picasso.get().load(livre.data.getValue("ImageLien").toString()).into(image!!)
                             }
                         }
                     }

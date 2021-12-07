@@ -113,9 +113,7 @@ class BarcodeScanningActivity : AppCompatActivity() {
                         if(barcode.format == Barcode.FORMAT_EAN_13 || barcode.format == Barcode.FORMAT_EAN_8) {
                             if (it.isSuccessful) {
                                 for (livre in it.result) {
-                                    Log.e("ok", livre.data.getValue("ISBN").toString())
                                     if (livre.data.getValue("ISBN") == result) {
-                                        Log.e("ok", "ajout")
                                         barcodeResult.addElement(result)
                                     }
                                 }

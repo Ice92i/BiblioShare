@@ -14,6 +14,9 @@ import java.util.*
 import android.graphics.BitmapFactory
 
 import android.graphics.Bitmap
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import java.io.InputStream
 import java.net.URL
@@ -28,6 +31,8 @@ class ScanDetailActivity : AppCompatActivity() {
     var okbutton: Button? = null
     var cancelbutton: Button? = null
     val db = FirebaseFirestore.getInstance()
+    var user: String = ""
+    var idLivre: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +55,11 @@ class ScanDetailActivity : AppCompatActivity() {
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
                         for (livre in it.result) {
-                            Log.e("ok",livre.data.getValue("ImageLien").toString())
                             if (livre.data.getValue("ISBN") == barcode) {
                                 titre!!.text = livre.data.getValue("Titre").toString()
                                 auteur!!.text = livre.data.getValue("Auteur").toString()
                                 Picasso.get().load(livre.data.getValue("ImageLien").toString()).into(image!!)
+                                idLivre = livre.id
                             }
                         }
                     }
@@ -71,6 +76,28 @@ class ScanDetailActivity : AppCompatActivity() {
     private fun onOkCapture(s: String?) {
         barcodeResult.remove(s)
         //ajoute le livre dans la base de données
+        var userID: String = ""
+        db.collection("livres").document(idLivre).collection("utilisateurs")
+            .get()
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    for (user in it.result) {
+                        Log.e("ok", user.id)
+                        userID = user.id
+                    }
+                    db.collection("livres").document(idLivre).collection("utilisateurs").document(userID)
+                        .update(
+                            "UID", Firebase.auth.currentUser!!.uid
+                        ).addOnCompleteListener{
+                            if(it.isSuccessful){
+                                Log.e("ok", "ok")
+                            }
+                            else{
+                                Log.e("ok", "pb")
+                            }
+                        }
+                }
+            }
         continueList()
     }
 

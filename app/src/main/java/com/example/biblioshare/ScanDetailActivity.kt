@@ -14,6 +14,7 @@ import java.util.*
 import android.graphics.BitmapFactory
 
 import android.graphics.Bitmap
+import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.ktx.Firebase
@@ -82,7 +83,6 @@ class ScanDetailActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     for (user in it.result) {
-                        Log.e("ok", user.id)
                         userID = user.id
                     }
                     db.collection("livres").document(idLivre).collection("utilisateurs").document(userID)
@@ -90,9 +90,11 @@ class ScanDetailActivity : AppCompatActivity() {
                             "UID", Firebase.auth.currentUser!!.uid
                         ).addOnCompleteListener{
                             if(it.isSuccessful){
+                                Toast.makeText(this, "Livre ajouté", Toast.LENGTH_LONG).show()
                                 Log.e("ok", "ok")
                             }
                             else{
+                                Toast.makeText(this, "Problème d'ajout", Toast.LENGTH_LONG).show()
                                 Log.e("ok", "pb")
                             }
                         }
@@ -103,6 +105,7 @@ class ScanDetailActivity : AppCompatActivity() {
 
     private fun onCancelCapture(s: String?) {
         barcodeResult.remove(s)
+        Toast.makeText(this, "Ajout annulé", Toast.LENGTH_LONG).show()
         continueList()
     }
 
@@ -118,6 +121,8 @@ class ScanDetailActivity : AppCompatActivity() {
                             if (livre.data.getValue("ISBN") == barcode) {
                                 titre!!.text = livre.data.getValue("Titre").toString()
                                 auteur!!.text = livre.data.getValue("Auteur").toString()
+                                Picasso.get().load(livre.data.getValue("ImageLien").toString()).into(image!!)
+                                idLivre = livre.id
                             }
                         }
                     }

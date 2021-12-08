@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:gravity="center_vertical"
+
     tools:context=".AccueilActivity">
 
     <TextView
@@ -15,65 +17,108 @@
         android:textStyle="bold"
         android:layout_marginTop="150dp"
         android:text="@string/accueil_bonjour"
-        android:textSize="25sp" />
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="361dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="100dp"
+        android:text="@string/recherche_instructions"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
-        <Button
-            android:id="@+id/accueil_recherche_bouton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+        <EditText
+            android:id="@+id/recherche_livre_edittext"
+            android:layout_width="298dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/rounded_corners_white"
-            android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp"
-            android:text="@string/accueil_recherche"
-            android:textSize="21sp"
-            app:icon="@android:drawable/ic_menu_search"
-            app:textAllCaps="false" />
+            android:hint="@string/recherche_hint"
+            android:inputType="textShortMessage"
+            android:paddingStart="20dp"
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/accueil_scan_bouton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_corners_white"
-            android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp"
-            android:text="@string/accueil_ajout"
-            android:textSize="21sp"
-            app:icon="@android:drawable/ic_input_add"
-            app:textAllCaps="false" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/recherche_bouton"
+            android:layout_width="61dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="-7dp"
+            android:background="@drawable/rounded_corners_grey"
+            android:layout_gravity="center"
+            android:text=""
+            android:paddingStart="15dp"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
 
-
-    <Button
-        android:id="@+id/accueil_possession_bouton"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_corners_white"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="@string/accueil_possession"
-        android:textSize="21sp"
-        app:icon="@drawable/books2"
-        app:textAllCaps="false" />
+        android:layout_height="152dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="30dp">
 
-    <Button
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/accueil_scan_bouton"
+            android:layout_width="145dp"
+            android:layout_height="145dp"
+            android:background="@drawable/rounded_button_warmpink"
+            android:drawableStart="@drawable/add"
+            android:paddingStart="10dp"
+            android:paddingEnd="13dp"
+            android:text="@string/accueil_ajout"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/accueil_possession_bouton"
+            android:layout_width="145dp"
+            android:layout_height="145dp"
+            android:background="@drawable/rounded_button_orange"
+            android:text="@string/accueil_possession"
+            android:textSize="23sp"
+            android:layout_marginStart="40dp"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textColor="@color/white"
+            android:drawableStart="@drawable/books"
+            android:textAllCaps="false" />
+
+
+</LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/acceuil_profile_bouton"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Profil utilisateur"
-        android:textSize="21sp" />
+        android:text="Mon profil"
+        android:textAllCaps="false"
+        android:layout_marginTop="30dp"
+        android:textSize="23sp"
+        android:paddingStart="20dp"
+        android:paddingEnd="40dp"
+        android:background="@drawable/rounded_corners_warmblue"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:drawableStart="@drawable/heart" />
 
 
 </LinearLayout>

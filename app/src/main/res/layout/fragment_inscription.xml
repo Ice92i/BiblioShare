@@ -21,18 +21,6 @@
         android:background="@drawable/rounded_corners_white"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/inscription_nom_edittext"
-        android:layout_width="360dp"
-        android:layout_height="60dp"
-        android:hint="@string/nom"
-        android:textSize="30sp"
-        android:padding="5dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:layout_marginTop="25dp"
-        android:inputType="textPersonName"
-        android:background="@drawable/rounded_corners_white"/>
 
     <EditText
         android:id="@+id/inscription_pseudo_edittext"

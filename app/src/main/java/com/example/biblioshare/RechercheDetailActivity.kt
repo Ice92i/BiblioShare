@@ -54,13 +54,6 @@ class RechercheDetailActivity : AppCompatActivity() {
         startActivity(intentChatLog)
     }
 
-    /*private fun launchConversation() {
-        val userToMessage = UserMessage(/* uid */"",/* pseudo */ "")
-        val intentChatLog = Intent(this, ConversationActivity::class.java)
-        intentChatLog.putExtra(USER_KEY, userToMessage)
-        startActivity(intentChatLog)
-    }*/
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_complet, menu)
         return super.onCreateOptionsMenu(menu)

@@ -2,15 +2,24 @@ package com.example.biblioshare
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.biblioshare.modele.Livre
+import com.example.biblioshare.modele.Utilisateur
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_possession_detail.*
+import kotlinx.android.synthetic.main.activity_possession_detail.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PossessionDetailActivity  : AppCompatActivity(){
+
+    lateinit var date : Date
+    lateinit var livre : Livre
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,17 +27,18 @@ class PossessionDetailActivity  : AppCompatActivity(){
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val livre = intent.getParcelableExtra<Livre>("id")
+        livre = this.intent.extras!!.get("LIVRE") as Livre
+        date = this.intent.extras!!.get("DATE") as Date
 
-        livre_titre_textview.text = livre?.Titre
+        livre_titre_textview.text = livre.Titre
+        livre_auteur_textview.text = livre.Auteur
+        Picasso
+            .get()
+            .load(livre.Image_du_livre.toString())
+            .into(livre_couverture_imageview)
 
-        livre_auteur_textview.text = livre?.Auteur
-
-      //  livre_couverture_recherche_imageview
-
-      //  livre_categorie_textview.text = livre?.categorie
-
-     //   livre_date_textview.text = livre?.dateScan.toString()
+        Log.d("DATE", date.toString())
+        livre_date_textview.text = SimpleDateFormat("dd/MM/yyyy").format(date)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -45,20 +55,6 @@ class PossessionDetailActivity  : AppCompatActivity(){
             R.id.messages_action -> {
                 val intent = Intent(this, MessagerieActivity::class.java)
                 startActivity(intent)
-            }
-
-            R.id.supprimer_livre_action -> {
-                AlertDialog.Builder(this)
-                    .setTitle("Supprimer le livre de votre liste")
-                    .setMessage("Etes-vous sûr ?")
-                    .setPositiveButton("Oui") { _, _ ->
-                        finish()
-                        Toast.makeText(this, "Livre supprimé", Toast.LENGTH_SHORT).show()
-                    }
-                    .setNegativeButton("Non"){ dialog,_ ->
-                        dialog.dismiss()
-                    }
-                    .show()
             }
 
         }

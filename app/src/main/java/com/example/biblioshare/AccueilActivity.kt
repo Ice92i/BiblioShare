@@ -29,6 +29,7 @@ class AccueilActivity : AppCompatActivity() {
 
     private var livres : MutableList<Livre> = ArrayList()
     private var livresUser : MutableList<Livre> = ArrayList()
+    private var livresScanDates : MutableList<Date> = ArrayList()
     private var utilisateurs : MutableList<Utilisateur> = ArrayList()
     private val db = FirebaseFirestore.getInstance()
     private var user : Utilisateur = Utilisateur("",
@@ -272,6 +273,7 @@ class AccueilActivity : AppCompatActivity() {
 
                     if (util.UID == Firebase.auth.currentUser?.uid) {
                         livresUser.add(livre)
+                        livresScanDates.add(util.dateReception)
                         result = true
                     }
                 }
@@ -285,6 +287,7 @@ class AccueilActivity : AppCompatActivity() {
             if(livresUser.size != 0) {
                 val intent = Intent(this, PossessionListeActivity::class.java)
                 intent.putParcelableArrayListExtra("LIVRESUTIL", ArrayList(livresUser))
+                intent.putExtra("DATESCAN", ArrayList(livresScanDates))
                 startActivity(intent)
 
             } else {

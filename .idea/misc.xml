@@ -11,9 +11,11 @@
         <entry key="../BiblioShare/app/src/main/res/drawable/speech_bubble.xml" value="0.31145833333333334" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_accueil.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_gestion.xml" value="0.1" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_possession_detail.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_profil.xml" value="0.175" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche.xml" value="0.2828125" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche_detail.xml" value="0.25833333333333336" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_scan_detail.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/diamondlayout.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/fragment_inscription.xml" value="0.1793478260869565" />
         <entry key="../BiblioShare/app/src/main/res/layout/view_livre_possession.xml" value="0.14361702127659576" />

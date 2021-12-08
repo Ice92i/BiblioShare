@@ -22,7 +22,6 @@ class RechercheLivreAdaptateur(
 
     override fun getItemCount() = livres!!.size
 
-
     private var locLivre : Location = Location(LocationManager.NETWORK_PROVIDER)
     private var locUser : Location = Location(LocationManager.NETWORK_PROVIDER)// OR GPS_PROVIDER based on the requirement
 

@@ -21,7 +21,7 @@
     <string name="menu_retour">Retour</string>
     <string name="MessageHint">Votre message</string>
     <string name="Send">Envoyer</string>
-    <string name="accueil_ajout">Ajouter</string>
+    <string name="accueil_ajout">Ajouter un livre</string>
     <string name="NotFound">Votre recherche n\'a pas abouti... Essayez encore !</string>
     <string name="menu_delete_action">Supprimer</string>
     <string name="accueil_possession">Ma liste</string>

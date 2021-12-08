@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -19,6 +20,7 @@ import com.google.mlkit.vision.common.InputImage
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import com.google.firebase.firestore.FirebaseFirestore
 import java.io.File
 import java.util.*
 
@@ -91,6 +93,7 @@ class BarcodeScanningActivity : AppCompatActivity() {
     }
 
     private fun scanBarcodes(image: InputImage) {
+        val db = FirebaseFirestore.getInstance()
         val options = BarcodeScannerOptions.Builder()
             .setBarcodeFormats(
                 Barcode.FORMAT_EAN_13,
@@ -102,32 +105,35 @@ class BarcodeScanningActivity : AppCompatActivity() {
 
         val result = scanner.process(image)
             .addOnSuccessListener { barcodes ->
-                for (barcode in barcodes) {
-                    when (barcode.format) {
-                        Barcode.FORMAT_EAN_13 -> {
-                            val result = barcode.displayValue
-                            barcodeResult.addElement(result)
-                        }
-                        Barcode.FORMAT_EAN_8 -> {
-                            val result = barcode.displayValue
-                            barcodeResult.addElement(result)
+                db.collection("livres")
+                    .get()
+                    .addOnCompleteListener {
+                    for (barcode in barcodes) {
+                        val result = barcode.displayValue
+                        if(barcode.format == Barcode.FORMAT_EAN_13 || barcode.format == Barcode.FORMAT_EAN_8) {
+                            if (it.isSuccessful) {
+                                for (livre in it.result) {
+                                    if (livre.data.getValue("ISBN") == result) {
+                                        barcodeResult.addElement(result)
+                                    }
+                                }
+                            }
                         }
                     }
-
-                }
-                if(barcodeResult.size == 0){
-                    Toast.makeText(this, "Pas de code barre de livre détecté", Toast.LENGTH_LONG).show()
-                }
-                else{
-                    val intent: Intent = Intent(this,ScanDetailActivity::class.java)
-                    val finalResult: Array<String> = Array<String>(size = barcodeResult.size, init = { _ -> "" })
-                    var i = 0
-                    for(s in barcodeResult){
-                        finalResult[i] = s
-                        i += 1
+                    if(barcodeResult.size == 0){
+                        Toast.makeText(this, "Pas de code barre de livre de la bibliothèque détecté", Toast.LENGTH_LONG).show()
                     }
-                    intent.putExtra("barcode", finalResult)
-                    startActivity(intent)
+                    else{
+                        val intent: Intent = Intent(this,ScanDetailActivity::class.java)
+                        val finalResult: Array<String> = Array<String>(size = barcodeResult.size, init = { _ -> "" })
+                        var i = 0
+                        for(s in barcodeResult){
+                            finalResult[i] = s
+                            i += 1
+                        }
+                        intent.putExtra("barcode", finalResult)
+                        startActivity(intent)
+                    }
                 }
             }
             .addOnFailureListener {

@@ -26,14 +26,11 @@ import java.util.*
 class BarcodeScanningActivity : AppCompatActivity() {
 
     var barcodeResult = Vector<String>()
-    var captureButton: Button? = null
     var currentFileD: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_accueil)
-        captureButton = findViewById(R.id.accueil_scan_bouton)
-        captureButton?.setOnClickListener { v -> onClickCapture(v) }
+        onClickCapture()
     }
 
     private var resultLauncher =
@@ -44,7 +41,7 @@ class BarcodeScanningActivity : AppCompatActivity() {
             }
         }
 
-    private fun onClickCapture(view: View?) {
+    private fun onClickCapture() {
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 2)

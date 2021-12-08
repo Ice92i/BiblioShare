@@ -69,7 +69,7 @@ class ScanDetailActivity : AppCompatActivity() {
             cancelbutton?.setOnClickListener {onCancelCapture(barcode)}
         }
         else{
-            val intent: Intent = Intent(this,BarcodeScanningActivity::class.java)
+            val intent: Intent = Intent(this,AccueilActivity::class.java)
             startActivity(intent)
         }
     }
@@ -144,7 +144,7 @@ class ScanDetailActivity : AppCompatActivity() {
             cancelbutton?.setOnClickListener {onCancelCapture(barcode)}
         }
         else{
-            val intent: Intent = Intent(this,BarcodeScanningActivity::class.java)
+            val intent: Intent = Intent(this,AccueilActivity::class.java)
             startActivity(intent)
         }
     }

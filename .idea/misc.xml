@@ -3,13 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../BiblioShare/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13148148148148148" />
+        <entry key="../BiblioShare/app/src/main/res/drawable-v24/rounded_corners_green.xml" value="0.17395833333333333" />
         <entry key="../BiblioShare/app/src/main/res/drawable-v24/rounded_corners_grey.xml" value="0.19114583333333332" />
+        <entry key="../BiblioShare/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13148148148148148" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_button_darkgrey.xml" value="0.15555555555555556" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_button_orange.xml" value="0.21851851851851853" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_button_warmblue.xml" value="0.21851851851851853" />
+        <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners_warmblue.xml" value="0.24722222222222223" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners_white.xml" value="0.21851851851851853" />
         <entry key="../BiblioShare/app/src/main/res/drawable/speech_bubble.xml" value="0.31145833333333334" />
-        <entry key="../BiblioShare/app/src/main/res/layout/activity_accueil.xml" value="0.1" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_accueil.xml" value="0.25" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_gestion.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_possession_detail.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_profil.xml" value="0.175" />
@@ -17,12 +21,17 @@
         <entry key="../BiblioShare/app/src/main/res/layout/activity_recherche_detail.xml" value="0.25833333333333336" />
         <entry key="../BiblioShare/app/src/main/res/layout/activity_scan_detail.xml" value="0.1" />
         <entry key="../BiblioShare/app/src/main/res/layout/diamondlayout.xml" value="0.1" />
+        <entry key="../BiblioShare/app/src/main/res/layout/fragment_connexion.xml" value="0.1578125" />
         <entry key="../BiblioShare/app/src/main/res/layout/fragment_inscription.xml" value="0.1793478260869565" />
         <entry key="../BiblioShare/app/src/main/res/layout/view_livre_possession.xml" value="0.14361702127659576" />
         <entry key="../BiblioShare/app/src/main/res/layout/view_livre_recherche.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/menu/menu_complet.xml" value="0.375" />
+        <entry key="../BiblioShare/app/src/main/res/menu/menu_detail_livre.xml" value="0.1" />
+        <entry key="../BiblioShare/app/src/main/res/menu/menu_messages.xml" value="0.2953125" />
+        <entry key="../BiblioShare/app/src/main/res/menu/menu_retour.xml" value="0.1" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" project-jdk-name="Embedded JDK" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Embedded JDK" project-jdk-type="JavaSDK" />
 </project>

@@ -48,8 +48,9 @@ class RechercheListeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.retour_action -> {
-                finish()
+            R.id.home_action -> {
+                val intent = Intent(this, AccueilActivity::class.java)
+                startActivity(intent)
             }
 
             R.id.messages_action -> {

@@ -8,6 +8,15 @@
     android:orientation="vertical"
     android:gravity="center">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Veuillez renseigner vos informations"
+        android:textColor="@color/white"
+        android:textSize="26sp" />
+
     <EditText
         android:id="@+id/inscription_prenom_edittext"
         android:layout_width="360dp"
@@ -17,7 +26,7 @@
         android:padding="5dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/rounded_corners_white"
         android:inputType="textPersonName" />
 
@@ -61,12 +70,12 @@
         android:layout_marginTop="25dp"
         android:background="@drawable/rounded_corners_white"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/inscription_bouton"
         android:layout_width="370dp"
         android:layout_height="80dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_corners_white"
+        android:background="@drawable/rounded_corners_warmblue"
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:paddingLeft="25dp"

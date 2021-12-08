@@ -29,21 +29,17 @@
 
         <activity android:name=".AccueilActivity" />
         <activity
-            android:name=".ConnexionActivity"
-            android:parentActivityName=".ZZZArchive_GestionActivity" />
+            android:name=".ConnexionActivity"/>
         <activity
             android:name=".ConversationActivity"/>
         <activity
-            android:name=".InscriptionActivity"
-            android:parentActivityName=".ZZZArchive_GestionActivity" />
+            android:name=".InscriptionActivity"/>
         <activity android:name=".MessagerieActivity" />
-        <activity android:name=".NotFoundActivity" />
         <activity
             android:name=".PossessionDetailActivity"
             android:parentActivityName=".PossessionListeActivity" />
         <activity android:name=".PossessionListeActivity" />
         <activity android:name=".ProfilActivity"/>
-        <activity android:name=".RechercheActivity" />
         <activity
             android:name=".RechercheDetailActivity"
             android:parentActivityName=".RechercheListeActivity" />

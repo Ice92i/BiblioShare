@@ -8,12 +8,8 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.biblioshare.modele.ChatMessage
-import com.example.biblioshare.modele.ChatOtherUserItem
-import com.example.biblioshare.modele.ChatUserItem
 import com.example.biblioshare.modele.UserMessage
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.auth.User
 import com.google.firebase.firestore.ktx.toObject
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
@@ -119,14 +115,15 @@ class MessagerieActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_retour, menu)
+        menuInflater.inflate(R.menu.menu_home, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.retour_action -> {
-                finish()
+            R.id.home_action -> {
+                val intent = Intent(this, AccueilActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

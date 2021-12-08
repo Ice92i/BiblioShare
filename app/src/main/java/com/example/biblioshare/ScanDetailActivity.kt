@@ -75,6 +75,7 @@ class ScanDetailActivity : AppCompatActivity() {
     }
 
     private fun onOkCapture(s: String?) {
+        var pseudo: String = ""
         barcodeResult.remove(s)
         //ajoute le livre dans la base de données
         var userID: String = ""
@@ -85,18 +86,30 @@ class ScanDetailActivity : AppCompatActivity() {
                     for (user in it.result) {
                         userID = user.id
                     }
-                    db.collection("livres").document(idLivre).collection("utilisateurs").document(userID)
-                        .update(
-                            "UID", Firebase.auth.currentUser!!.uid
-                        ).addOnCompleteListener{
-                            if(it.isSuccessful){
-                                Toast.makeText(this, "Livre ajouté", Toast.LENGTH_LONG).show()
-                                Log.e("ok", "ok")
+                    db.collection("usermessage")
+                        .get()
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                for (user in it.result) {
+                                    if (user.data.getValue("uid") == Firebase.auth.currentUser!!.uid) {
+                                        pseudo = user.data.getValue("username").toString()
+                                    }
+                                }
                             }
-                            else{
-                                Toast.makeText(this, "Problème d'ajout", Toast.LENGTH_LONG).show()
-                                Log.e("ok", "pb")
-                            }
+                            db.collection("livres").document(idLivre).collection("utilisateurs").document(userID)
+                                .update(
+                                    "UID", Firebase.auth.currentUser!!.uid,
+                                    "Pseudonyme", pseudo
+                                ).addOnCompleteListener{
+                                    if(it.isSuccessful){
+                                        Toast.makeText(this, "Livre ajouté", Toast.LENGTH_LONG).show()
+                                        Log.e("ok", "ok")
+                                    }
+                                    else{
+                                        Toast.makeText(this, "Problème d'ajout", Toast.LENGTH_LONG).show()
+                                        Log.e("ok", "pb")
+                                    }
+                                }
                         }
                 }
             }

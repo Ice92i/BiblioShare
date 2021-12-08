@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.biblioshare.modele.UserMessage
 import com.google.firebase.auth.FirebaseAuth
@@ -63,7 +64,7 @@ class AccueilActivity : AppCompatActivity() {
                         Log.d("accueil", "DocumentSnapshot data: ${document.data}")
                         currentUser = document.toObject<UserMessage>()
                         Log.d("accueil", "${currentUser?.username}, ${currentUser?.uid}")
-                        //dummyConversation()
+                        Toast.makeText(this, "Ready to use", Toast.LENGTH_SHORT).show()
                     } else {
                         Log.d("accueil", "No such document")
                     }

@@ -32,8 +32,7 @@
             android:name=".ConnexionActivity"
             android:parentActivityName=".ZZZArchive_GestionActivity" />
         <activity
-            android:name=".ConversationActivity"
-            android:parentActivityName=".MessagerieActivity" />
+            android:name=".ConversationActivity"/>
         <activity
             android:name=".InscriptionActivity"
             android:parentActivityName=".ZZZArchive_GestionActivity" />

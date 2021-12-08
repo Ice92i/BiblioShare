@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.biblioshare.AccueilActivity.Companion.currentUser
 import com.example.biblioshare.modele.ChatMessage
@@ -12,6 +13,7 @@ import com.example.biblioshare.modele.ChatUserItem
 import com.example.biblioshare.modele.UserMessage
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.toObject
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
@@ -21,6 +23,7 @@ import kotlinx.android.synthetic.main.activity_conversation.*
 class ConversationActivity : AppCompatActivity() {
 
     val adapter = GroupAdapter<GroupieViewHolder>()
+    val messageList: MutableList<ChatMessage> = mutableListOf()
 
     var otherUser: UserMessage? = null
 
@@ -48,28 +51,36 @@ class ConversationActivity : AppCompatActivity() {
         val currentUser = AccueilActivity.currentUser ?: return
         val db = FirebaseFirestore.getInstance()
 
-        val messageRef = db.collection("message").document(currentUser.uid).collection(otherUser!!.uid)
-
-        messageRef.addSnapshotListener { value, e ->
+        db.collection("message").document(currentUser.uid).collection(otherUser!!.uid).orderBy("timestamp")
+            .addSnapshotListener { value, e ->
                 if (e != null) {
                     Log.w("conversationD", "Listen failed.", e)
                     return@addSnapshotListener
                 }
                 adapter.clear()
+                messageList.clear()
                 for (document in value!!) {
                     Log.d("conversationD", "${document.id} => ${document.data}")
                     val chatMessage = document.toObject<ChatMessage>()
                     if (chatMessage != null) {
-                        Log.d("ChatLog", "Message found : ${chatMessage.text}")
+                        messageList.add(chatMessage)
+                        /*Log.d("conversationD", "Message found : ${chatMessage.text}")
                         if (chatMessage.userId == currentUser.uid) {
                             adapter.add(ChatUserItem(chatMessage.text, currentUser))
                         } else {
                             adapter.add(ChatOtherUserItem(chatMessage.text, otherUser!!))
-                        }
-
-
+                        }*/
                     }
                 }
+                for(chatMessage in messageList) {
+                    Log.d("conversationD", "Message found : ${chatMessage.text}")
+                    if (chatMessage.userId == currentUser.uid) {
+                        adapter.add(ChatUserItem(chatMessage.text, currentUser))
+                    } else {
+                        adapter.add(ChatOtherUserItem(chatMessage.text, otherUser!!))
+                    }
+                }
+
             }
     }
 
@@ -86,12 +97,14 @@ class ConversationActivity : AppCompatActivity() {
 
         val db = FirebaseFirestore.getInstance()
         val refSend = db.collection("message").document(userId).collection(otherUserId)
-        val chatMessageSend = ChatMessage(text, otherUserId, userId)
+        val timeInMillis = System.currentTimeMillis() / 1000
+
+        val chatMessageSend = ChatMessage(text, otherUserId, userId, timeInMillis)
         refSend.add(chatMessageSend)
             .addOnSuccessListener { documentReference ->
                 Log.d("conversationD", "DocumentSnapshot written with ID: ${documentReference.id}")
                 val refReceive = db.collection("message").document(otherUserId).collection(userId)
-                val chatMessageReceive = ChatMessage(text, otherUserId, userId)
+                val chatMessageReceive = ChatMessage(text, otherUserId, userId, timeInMillis)
                 refReceive.add(chatMessageReceive)
                     .addOnSuccessListener {
                         val latestMessageSendRef = db.collection("latestmessage").document(userId).collection("message").document(otherUserId)
@@ -102,6 +115,7 @@ class ConversationActivity : AppCompatActivity() {
                                     .addOnSuccessListener {
                                         message_edittext_chatlog.text.clear()
                                         recyclerview_chatlog.scrollToPosition(adapter.itemCount - 1)
+                                        Toast.makeText(this, "Message sent", Toast.LENGTH_SHORT).show()
                                     }
                             }
                     }

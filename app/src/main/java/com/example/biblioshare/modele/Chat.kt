@@ -26,6 +26,6 @@ class ChatUserItem(val text: String,  val user: UserMessage): Item<GroupieViewHo
     }
 }
 
-class ChatMessage(val text: String, val otherUserId: String, val userId: String) {
-    constructor() : this("", "", "")
+class ChatMessage(val text: String, val otherUserId: String, val userId: String, val timestamp: Long) {
+    constructor() : this("", "", "", -1)
 }

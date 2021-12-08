@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BiblioShare">
         <activity
-            android:name=".RechercheActivity"
+            android:name=".GestionActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
@@ -43,7 +43,7 @@
             android:parentActivityName=".PossessionListeActivity" />
         <activity android:name=".PossessionListeActivity" />
         <activity android:name=".ProfilActivity"/>
-        <activity android:name=".GestionActivity" />
+        <activity android:name=".RechercheActivity" />
         <activity
             android:name=".RechercheDetailActivity"
             android:parentActivityName=".RechercheListeActivity" />

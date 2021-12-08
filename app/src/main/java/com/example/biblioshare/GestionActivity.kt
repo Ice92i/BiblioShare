@@ -48,9 +48,6 @@ class GestionActivity  : AppCompatActivity() {
         tab_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.dark_warm_grey))
         tab_layout.tabTextColors = ContextCompat.getColorStateList(this, android.R.color.white)
 
-        // Set different Text Color for Tabs for when are selected or not
-        //tab_layout.setTabTextColors(R.color.normalTabTextColor, R.color.selectedTabTextColor)
-
         // Number Of Tabs
         val numberOfTabs = 2
 
@@ -59,9 +56,6 @@ class GestionActivity  : AppCompatActivity() {
 
         // Show all Tabs in screen
         tab_layout.tabMode = TabLayout.MODE_FIXED
-
-        // Scroll to see all Tabs
-        //tab_layout.tabMode = TabLayout.MODE_SCROLLABLE
 
         // Set Tab icons next to the text, instead above the text
         tab_layout.isInlineLabel = true
@@ -98,9 +92,9 @@ class GestionActivity  : AppCompatActivity() {
 
     }
 
-    internal fun createAccount(email: String, password: String, name: String, pseudo: String) {
-        if (email == "" || password == "" || name == ""){
-            Toast.makeText(baseContext, "Name/Email/Password is empty.",
+    internal fun createAccount(email: String, password: String, firstname: String, pseudo: String) {
+        if (email == "" || password == "" || firstname == "" || pseudo == ""){
+            Toast.makeText(baseContext, "Veuillez remplir tous les champs",
                 Toast.LENGTH_SHORT).show()
         }
         else {
@@ -110,7 +104,7 @@ class GestionActivity  : AppCompatActivity() {
                         Log.d("TAG", "createUserWithEmail:success")
                         task.result.user?.let { saveUserForMessage(it.uid, pseudo) }
                         val profileUpdates =
-                            UserProfileChangeRequest.Builder().setDisplayName(name).build()
+                            UserProfileChangeRequest.Builder().setDisplayName(firstname).build()
                         Firebase.auth.currentUser?.updateProfile(profileUpdates)
                         if (ActivityCompat.checkSelfPermission(
                                 this,
@@ -147,7 +141,7 @@ class GestionActivity  : AppCompatActivity() {
 
     internal fun signIn(email: String, password: String) {
         if (email == "" || password == ""){
-            Toast.makeText(baseContext, "Email or Password is empty.",
+            Toast.makeText(baseContext, "Veuillez remplir tous les champs",
                 Toast.LENGTH_SHORT).show()
         }
         else {
@@ -222,9 +216,6 @@ class GestionActivity  : AppCompatActivity() {
 
                     // Change Font and Size
                     tabViewChild.typeface = Typeface.DEFAULT_BOLD
-//                    val font = ResourcesCompat.getFont(this, R.font.myFont)
-//                    tabViewChild.typeface = font
-//                    tabViewChild.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25f)
                 }
             }
         }

@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -57,8 +56,8 @@ class BarcodeScanningActivity : AppCompatActivity() {
                 ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 2)
             }
         }
-        val intent: Intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        val pictureName: String = "tmp"
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        val pictureName = "tmp"
         val tmpFileD = File(getExternalFilesDir(null), pictureName)
         currentFileD = tmpFileD
         val uriImage: Uri = FileProvider.getUriForFile(this, "com.example.biblioshare.provider", tmpFileD)
@@ -124,7 +123,7 @@ class BarcodeScanningActivity : AppCompatActivity() {
                         Toast.makeText(this, "Pas de code barre de livre de la bibliothèque détecté", Toast.LENGTH_LONG).show()
                     }
                     else{
-                        val intent: Intent = Intent(this,ScanDetailActivity::class.java)
+                        val intent = Intent(this,ScanDetailActivity::class.java)
                         val finalResult: Array<String> = Array<String>(size = barcodeResult.size, init = { _ -> "" })
                         var i = 0
                         for(s in barcodeResult){

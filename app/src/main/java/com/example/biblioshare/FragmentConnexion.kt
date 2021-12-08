@@ -11,13 +11,6 @@ import kotlinx.android.synthetic.main.fragment_connexion.*
 class FragmentConnexion : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
-        // val rootView = inflater.inflate(R.layout.fragment_connexion, container, false)
-
-        // val fragmentName = "Log In Fragment"
-
-        // rootView.fragment_name.text = fragmentName
-
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_connexion, container, false)
     }
 
@@ -28,23 +21,4 @@ class FragmentConnexion : Fragment() {
             (activity as GestionActivity).signIn(email,motdepasse)
         }
     }
-/*
-    interface Listener {
-        fun onLoginButtonClicked()
-    }
-
-    private var listener: Listener? = null
-
-    fun setListener(listener: Listener?) {
-        this.listener = listener
-    }
-
-    // When drawer item selected, do something like
-    //
-    // if (listener != null)
-    // {
-    //    listener.onDrawerItemSelected();
-    // }
-
- */
 }

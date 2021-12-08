@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../BiblioShare/app/src/main/res/drawable/speech_bubble.xml" value="0.31145833333333334" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_accueil.xml" value="0.25" />
+        <entry key="../BiblioShare/app/src/main/res/layout/activity_gestion.xml" value="0.1" />
+        <entry key="../BiblioShare/app/src/main/res/layout/fragment_inscription.xml" value="0.1793478260869565" />
+        <entry key="../BiblioShare/app/src/main/res/layout/view_livre_possession.xml" value="0.14361702127659576" />
+        <entry key="../BiblioShare/app/src/main/res/layout/view_livre_recherche.xml" value="0.2953125" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Embedded JDK" project-jdk-type="JavaSDK" />
+</project>

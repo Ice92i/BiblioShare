@@ -10,6 +10,7 @@
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_button_darkgrey.xml" value="0.15555555555555556" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_button_orange.xml" value="0.21851851851851853" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_button_warmblue.xml" value="0.21851851851851853" />
+        <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners_red.xml" value="0.23981481481481481" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners_warmblue.xml" value="0.24722222222222223" />
         <entry key="../BiblioShare/app/src/main/res/drawable/rounded_corners_white.xml" value="0.21851851851851853" />
         <entry key="../BiblioShare/app/src/main/res/drawable/speech_bubble.xml" value="0.31145833333333334" />
@@ -27,6 +28,7 @@
         <entry key="../BiblioShare/app/src/main/res/layout/view_livre_recherche.xml" value="0.2953125" />
         <entry key="../BiblioShare/app/src/main/res/menu/menu_complet.xml" value="0.375" />
         <entry key="../BiblioShare/app/src/main/res/menu/menu_detail_livre.xml" value="0.1" />
+        <entry key="../BiblioShare/app/src/main/res/menu/menu_home.xml" value="0.21302083333333333" />
         <entry key="../BiblioShare/app/src/main/res/menu/menu_messages.xml" value="0.2953125" />
         <entry key="../BiblioShare/app/src/main/res/menu/menu_retour.xml" value="0.1" />
       </map>

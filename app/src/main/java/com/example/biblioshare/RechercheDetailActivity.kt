@@ -25,8 +25,6 @@ class RechercheDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recherche_detail)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         utilisateur = this.intent.extras!!.get("UTILISATEUR") as Utilisateur
         livre = this.intent.extras!!.get("LIVRE") as Livre
         distance = this.intent.getStringExtra("DISTANCE").toString()
@@ -37,7 +35,6 @@ class RechercheDetailActivity : AppCompatActivity() {
             .get()
             .load(livre.Image_du_livre.toString())
             .into(livre_couverture_recherche_imageview)
-       // livre_categorie_textview.text = livre?.categorie
         livre_proprietaire_textview.text = utilisateur.Pseudonyme
         livre_distance_textview.text = distance
 

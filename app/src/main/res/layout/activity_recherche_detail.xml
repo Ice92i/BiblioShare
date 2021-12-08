@@ -19,43 +19,32 @@
         app:layout_constraintVertical_bias="0.084"
         tools:text="Titre" />
 
+
     <TextView
         android:id="@+id/livre_auteur_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.612"
-        tools:text="Auteur"
-        android:textSize="25sp"/>
+        app:layout_constraintVertical_bias="0.72"
+        tools:text="Auteur" />
 
     <ImageView
 
         android:id="@+id/livre_couverture_recherche_imageview"
-        android:layout_width="223dp"
-        android:layout_height="241dp"
+        android:layout_width="259dp"
+        android:layout_height="313dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275"
+        app:layout_constraintVertical_bias="0.32"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/livre_categorie_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75"
-        tools:text="Catégorie"
-        android:textSize="25sp"/>
 
     <TextView
         android:id="@+id/livre_proprietaire_textview"
@@ -64,10 +53,10 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.883"
+        app:layout_constraintVertical_bias="0.823"
         tools:text="Propriétaire" />
 
     <TextView
@@ -77,22 +66,28 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.883"
+        app:layout_constraintVertical_bias="0.823"
         tools:text="Distance" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/contacter_proprietaire_bouton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contacter propriétaire"
+        android:background="@drawable/rounded_corners_red"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="Contacter le propriétaire"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.932" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

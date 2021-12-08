@@ -122,6 +122,7 @@ class MessagerieActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.home_action -> {
+                Log.d("ACTION", "MAISON")
                 val intent = Intent(this, AccueilActivity::class.java)
                 startActivity(intent)
             }

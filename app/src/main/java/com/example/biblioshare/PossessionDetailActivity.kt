@@ -25,8 +25,6 @@ class PossessionDetailActivity  : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_possession_detail)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         livre = this.intent.extras!!.get("LIVRE") as Livre
         date = this.intent.extras!!.get("DATE") as Date
 

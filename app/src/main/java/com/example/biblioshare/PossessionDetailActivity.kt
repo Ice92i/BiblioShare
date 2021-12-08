@@ -37,19 +37,19 @@ class PossessionDetailActivity  : AppCompatActivity(){
             .load(livre.Image_du_livre.toString())
             .into(livre_couverture_imageview)
 
-        Log.d("DATE", date.toString())
         livre_date_textview.text = SimpleDateFormat("dd/MM/yyyy").format(date)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_detail_livre, menu)
+        menuInflater.inflate(R.menu.menu_complet, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.retour_action -> {
-                finish()
+            R.id.home_action -> {
+                val intent = Intent(this, AccueilActivity::class.java)
+                startActivity(intent)
             }
 
             R.id.messages_action -> {

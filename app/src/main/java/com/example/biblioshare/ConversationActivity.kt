@@ -1,5 +1,6 @@
 package com.example.biblioshare
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -123,14 +124,15 @@ class ConversationActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_retour, menu)
+        menuInflater.inflate(R.menu.menu_home, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.retour_action -> {
-                finish()
+            R.id.home_action -> {
+                val intent = Intent(this, AccueilActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

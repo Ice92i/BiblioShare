@@ -5,6 +5,8 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
@@ -20,15 +22,6 @@ class ProfilActivity : AppCompatActivity() {
         editTextMail.setText(Firebase.auth.currentUser?.email)
         editTextPseudo.setText(Firebase.auth.currentUser?.displayName)
 
-
-
-
-        // Bouton retour menu
-        profil_accueil_button.setOnClickListener {
-            val intent = Intent(this, AccueilActivity::class.java)
-            startActivity(intent)
-
-        }
         modifier_profile_button.setOnClickListener {
             val user = Firebase.auth.currentUser
 
@@ -60,5 +53,25 @@ class ProfilActivity : AppCompatActivity() {
 
                 }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_complet, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.home_action -> {
+                val intent = Intent(this, AccueilActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.messages_action -> {
+                val intent = Intent(this, MessagerieActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

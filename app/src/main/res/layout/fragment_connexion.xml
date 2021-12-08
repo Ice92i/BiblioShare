@@ -8,6 +8,15 @@
     android:orientation="vertical"
     android:gravity="center">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Veuillez renseigner vos identifiants"
+        android:textColor="@color/white"
+        android:textSize="26sp" />
+
     <EditText
         android:id="@+id/connexion_email_edittext"
         android:layout_width="360dp"
@@ -17,6 +26,7 @@
         android:inputType="textEmailAddress"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
+        android:layout_marginTop="40dp"
         android:textSize="30sp" />
 
     <EditText
@@ -32,7 +42,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_corners_white" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/connexion_bouton"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -44,6 +54,8 @@
         android:textColor="@color/white"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:background="@drawable/rounded_corners_grey" />
+        android:background="@drawable/rounded_corners_green" />
+
+
 
 </LinearLayout>

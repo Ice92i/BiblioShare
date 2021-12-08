@@ -21,7 +21,6 @@ import kotlinx.android.synthetic.main.activity_accueil.*
 import kotlinx.android.synthetic.main.activity_accueil.recherche_bouton
 import kotlinx.android.synthetic.main.activity_accueil.recherche_livre_edittext
 import kotlinx.android.synthetic.main.activity_profil.*
-import kotlinx.android.synthetic.main.activity_recherche.*
 import java.util.*
 import kotlin.collections.ArrayList
 

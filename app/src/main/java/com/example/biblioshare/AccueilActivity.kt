@@ -66,6 +66,7 @@ class AccueilActivity : AppCompatActivity() {
         }
 
         accueil_scan_bouton.setOnClickListener {
+            Log.d("Scan", "aaaaah")
             val intent = Intent(this, BarcodeScanningActivity::class.java)
             startActivity(intent)
 

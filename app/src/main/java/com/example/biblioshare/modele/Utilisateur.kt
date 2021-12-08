@@ -10,15 +10,13 @@ data class Utilisateur(
     val Pseudonyme : String,
     val email : String,
     val motdepasse : String,
-//    val active : Boolean,
     var utilisateurDocumentID : String,
     var UID : String,
     val dateReception : Date,
     var LatLocation : Double,
     var LonLocation : Double
 
-
-) : Parcelable {
+    ) : Parcelable {
     constructor() : this("",
         "",
         "",
@@ -28,4 +26,13 @@ data class Utilisateur(
         Date(0),
         0.0,
         0.0)
+    }
+
+
+@Parcelize
+class UserMessage(
+    val uid: String,
+    val username: String
+    ) : Parcelable {
+    constructor() : this("", "")
 }

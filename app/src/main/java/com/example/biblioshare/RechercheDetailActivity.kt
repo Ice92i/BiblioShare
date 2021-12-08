@@ -6,9 +6,20 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.biblioshare.modele.Livre
+import com.example.biblioshare.modele.Utilisateur
+import com.example.biblioshare.modele.UserMessage
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_recherche_detail.*
 
 class RechercheDetailActivity : AppCompatActivity() {
+
+    private lateinit var utilisateur : Utilisateur
+    lateinit var livre : Livre
+    private lateinit var distance : String
+
+    companion object {
+        val USER_KEY = "USER_KEY"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,19 +27,31 @@ class RechercheDetailActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val livre = intent.getParcelableExtra<Livre>("id")
+        utilisateur = this.intent.extras!!.get("UTILISATEUR") as Utilisateur
+        livre = this.intent.extras!!.get("LIVRE") as Livre
+        distance = this.intent.getStringExtra("DISTANCE").toString()
 
-        livre_titre_textview.text = livre?.Titre
-
-        livre_auteur_textview.text = livre?.Auteur
-
-        //  livre_couverture_recherche_imageview
-
+        livre_titre_textview.text = livre.Titre
+        livre_auteur_textview.text = livre.Auteur
+        Picasso
+            .get()
+            .load(livre.Image_du_livre.toString())
+            .into(livre_couverture_recherche_imageview)
        // livre_categorie_textview.text = livre?.categorie
+        livre_proprietaire_textview.text = utilisateur.Pseudonyme
+        livre_distance_textview.text = distance
 
-        //  livre_proprietaire_textview.text = livre.getProprietaire
+        contacter_proprietaire_bouton.setOnClickListener {
+            launchConversation()
+        }
 
-        //  livre_proprietaire_textview.text = livre.getProprietaire
+    }
+
+    private fun launchConversation() {
+        val userToMessage = UserMessage(utilisateur.UID, utilisateur.Pseudonyme)
+        val intentChatLog = Intent(this, ConversationActivity::class.java)
+        intentChatLog.putExtra(USER_KEY, userToMessage)
+        startActivity(intentChatLog)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

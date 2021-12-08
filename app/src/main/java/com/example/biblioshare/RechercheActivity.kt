@@ -15,20 +15,15 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_recherche.*
 import kotlinx.android.synthetic.main.activity_recherche_liste.*
 import kotlinx.android.synthetic.main.view_livre_recherche.view.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import java.util.*
 import kotlin.collections.ArrayList
 
-private const val TAG = "RechercheActivity"
-
 class RechercheActivity : AppCompatActivity() {
 
-    var livres : MutableList<Livre> = ArrayList()
-    var utilisateurs : MutableList<Utilisateur> = ArrayList()
+    private var livres : MutableList<Livre> = ArrayList()
+    private var utilisateurs : MutableList<Utilisateur> = ArrayList()
     private val db = FirebaseFirestore.getInstance()
-    var user : Utilisateur = Utilisateur("",
+    private var user : Utilisateur = Utilisateur("",
         "",
         "",
         "",
@@ -44,14 +39,10 @@ class RechercheActivity : AppCompatActivity() {
         setContentView(R.layout.activity_recherche)
 
         recherche_bouton.setOnClickListener {
-
             utilisateurs.clear()
             livres.clear()
             val recherche = recherche_livre_edittext.text.toString()
-
-            Log.d("BOUTON",livres.size.toString())
             readFireStoreData(recherche)
-
         }
     }
 
@@ -84,7 +75,7 @@ class RechercheActivity : AppCompatActivity() {
                             || livreDoc.data.getValue("Auteur").toString() == rechercheET
                             || livreDoc.data.getValue("ISBN").toString() == rechercheET)
                         {
-                            var livre = Livre(livreDoc.data.getValue("Titre").toString(),
+                            val livre = Livre(livreDoc.data.getValue("Titre").toString(),
                                 livreDoc.data.getValue("Auteur").toString(),
                                 livreDoc.data.getValue("ISBN").toString(),
                                 livreDoc.data.getValue("ImageLien").toString(),
@@ -113,13 +104,10 @@ class RechercheActivity : AppCompatActivity() {
 
                     querySnapshot!!.documents.forEach {
                         val ref = it.reference
-                        var util = (it.toObject(Utilisateur::class.java)!!)
+                        val util = (it.toObject(Utilisateur::class.java)!!)
                         util.utilisateurDocumentID = ref.id
                         utilisateurs.add(util)
                     }
-
-                    Log.d("RECHERCHE LIST DEBUG : ", utilisateurs!!.size.toString())
-
                     getBookLoc()
                     getUserLoc()
                     displayResults()
@@ -151,7 +139,7 @@ class RechercheActivity : AppCompatActivity() {
         }
     }
 
-    fun getUserLoc(){
+    private fun getUserLoc(){
         user.UID = Firebase.auth.currentUser!!.uid
 
         db.collection("location")
@@ -174,14 +162,10 @@ class RechercheActivity : AppCompatActivity() {
             }
     }
 
-    fun displayResults() {
+    private fun displayResults() {
 
         Handler().postDelayed({
             if(livres.size != 0) {
-                Log.d("BOOK RESULT", livres[0].toString())
-                Log.d("UTIL RESULT", utilisateurs[0].toString())
-                Log.d("USER RESULT", user.toString())
-
                 val intent = Intent(this, RechercheListeActivity::class.java)
                 intent.putParcelableArrayListExtra("LIVRES", ArrayList(livres))
                 intent.putParcelableArrayListExtra("UTILISATEURS", ArrayList(utilisateurs))

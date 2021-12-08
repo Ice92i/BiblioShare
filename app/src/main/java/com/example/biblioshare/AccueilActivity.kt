@@ -5,12 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.biblioshare.modele.UserMessage
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_accueil.*
+import kotlinx.android.synthetic.main.activity_profil.*
 
 class AccueilActivity : AppCompatActivity() {
 
@@ -21,6 +25,12 @@ class AccueilActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_accueil)
+
+        val userFirstName = Firebase.auth.currentUser?.displayName
+
+        val welcomeTextView : TextView = findViewById(R.id.accueil_welcome_textview)
+        val welcomeText = "Bienvenue $userFirstName!"
+        welcomeTextView.text = welcomeText
 
         fetchCurrentUser()
 

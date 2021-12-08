@@ -43,6 +43,7 @@
             android:name=".PossessionDetailActivity"
             android:parentActivityName=".PossessionListeActivity" />
         <activity android:name=".PossessionListeActivity" />
+        <activity android:name=".ProfilActivity"/>
         <activity android:name=".RechercheActivity" />
         <activity
             android:name=".RechercheDetailActivity"

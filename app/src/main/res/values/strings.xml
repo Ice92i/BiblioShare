@@ -12,7 +12,7 @@
     <string name="accueil_bonjour">Message bienvenue</string>
     <string name="accueil_recherche">Rechercher</string>
     <string name="menu_messages">Messages</string>
-    <string name="recherche_instructions">Veuillez entrer les informations du livre recherché</string>
+    <string name="recherche_instructions">Rechercher un livre</string>
     <string name="recherche_hint">ISBN, Auteur, Titre</string>
     <string name="recherche_valider">Rechercher</string>
     <string name="valider_scan">Oui ! Ajouter à ma liste de livres</string>

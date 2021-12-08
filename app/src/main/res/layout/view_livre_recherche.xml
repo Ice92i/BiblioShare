@@ -15,8 +15,8 @@
             android:id="@+id/livre_couverture_imageview"
             android:layout_margin="8dp"
             tools:src="@tools:sample/avatars"
-            android:layout_width="70dp"
-            android:layout_height="70dp" />
+            android:layout_width="60dp"
+            android:layout_height="70dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,9 +24,9 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_gravity="center_vertical"
                 android:id="@+id/livre_titre_textview"
                 tools:text="Titre"
+                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -41,8 +41,8 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_gravity="center_vertical"
                     android:id="@+id/livre_auteur_textview"
+                    android:layout_gravity="center_vertical"
                     tools:text="Auteur"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -62,7 +62,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:textSize="18sp"
-                    tools:text="Distance" />
+                    tools:text="Distance"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 

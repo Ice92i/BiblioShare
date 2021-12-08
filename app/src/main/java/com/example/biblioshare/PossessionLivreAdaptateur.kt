@@ -27,11 +27,11 @@ class PossessionLivreAdaptateur(val livres: List<Livre>) :
     override fun onBindViewHolder(holder: LivreViewHolder, position: Int) {
         val livre = livres[position]
         holder.livreView.livre_titre_textview.text =
-            livre.titre
+            livre.Titre
         holder.livreView.livre_auteur_textview.text =
-            livre.auteur
-        holder.livreView.livre_date_textview.text =
-            livre.dateScan.toString()
+            livre.Auteur
+      //  holder.livreView.livre_date_textview.text =
+        //    livre.dateScan.toString()
     }
 
 

@@ -95,28 +95,6 @@ class GestionActivity  : AppCompatActivity() {
         }.attach()
 
         setCustomTabTitles()
-/*
-
-        inscription_bouton.setOnClickListener {
-            val nom = inscription_nom_edittext.text.toString()
-            val prenom = inscription_prenom_edittext.text.toString()
-            val pseudo = inscription_pseudo_edittext.text.toString()
-            val email = inscription_email_edittext.text.toString()
-            val motdepasse = inscription_mdp_edittext.text.toString()
-            val firebaseName = "${nom.uppercase()} $prenom"
-
-            createAccount(email,motdepasse,firebaseName)
-        }
-
-
-
-        connexion_bouton.setOnClickListener {
-            val email = connexion_email_edittext.text.toString()
-            val motdepasse = connexion_mdp_edittext.text.toString()
-            signIn(email,motdepasse)
-        }
-
- */
 
     }
 

@@ -51,9 +51,7 @@ class AccueilActivity : AppCompatActivity() {
 
         val userFirstName = Firebase.auth.currentUser?.displayName
 
-        val welcomeTextView : TextView = findViewById(R.id.accueil_welcome_textview)
-        val welcomeText = "Bonjour $userFirstName"
-        welcomeTextView.text = welcomeText
+        accueil_welcome_textview.text = ""
 
         fetchCurrentUser()
 
@@ -94,6 +92,7 @@ class AccueilActivity : AppCompatActivity() {
                     if (document != null) {
                         Log.d("accueil", "DocumentSnapshot data: ${document.data}")
                         currentUser = document.toObject<UserMessage>()
+                        accueil_welcome_textview.text = "Bonjour ${currentUser?.username}"
                         Log.d("accueil", "${currentUser?.username}, ${currentUser?.uid}")
                         Toast.makeText(this, "Ready to use", Toast.LENGTH_SHORT).show()
                     } else {

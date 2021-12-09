@@ -124,7 +124,7 @@ class ConversationActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_home, menu)
+        menuInflater.inflate(R.menu.menu_complet, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -134,8 +134,15 @@ class ConversationActivity : AppCompatActivity() {
                 val intent = Intent(this, AccueilActivity::class.java)
                 startActivity(intent)
             }
+
+            R.id.messages_action -> {
+                val intent = Intent(this, MessagerieActivity::class.java)
+                startActivity(intent)
+            }
+
         }
         return super.onOptionsItemSelected(item)
+
     }
 
 }
